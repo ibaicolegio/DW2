@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 4</title>
+        <link rel="stylesheet" href="css/ejercicio4.css">
+    </head>
+    <body>
+        <h1>FICHA DE INSCRIPCIÓN</h1>
+        <form>
+            <fieldset>
+                <legend>Datos de suscripción</legend>
+                <label for="codigo">Código de suscripción:</label>
+                    <input type="text" id="codigo" value="INS-00123">
+                <label for="nSocio">Nº Socio:</label>
+                    <input type="number" id="nSocio" value="123" disabled>
+                <label for="usuario">Usuario:</label>
+                    <input type="text" id="usuario">
+                <label for="contraseña">Contraseña:</label>
+                    <input type="password" id="contraseña">
+                <label for="rContraseña">Repite Contraseña:</label>
+                    <input type="password" id="rContraseña">
+                <label for="dni">DNI:</label>
+                    <input type="text" id="dni">
+                <label for="letra">Letra:</label>
+                    <input type="text" id="letra">
+                <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion">
+                <label for="ciudad">Ciudad:</label>
+                    <input type="text" id="ciudad">
+                <label for="cp">Código Postal:</label>
+                    <input type="number" id="cp">
+                <label for="pais">País:</label>
+                    <input type="text" id="pais" value="Francia" disabled>
+            </fieldset>
+            <fieldset>
+                <legend>Datos Bancarios</legend>
+                <input type="radio" id="visa" value="visa" name="banco">
+                     <label for="visa">Visa</label>
+                <input type="radio" id="masterCard" value="masterCard" name="banco">
+                     <label for="masterCard">Master Card</label>
+                <input type="radio" id="americanExpress" value="americanExpress" name="banco">
+                     <label for="americanExpress">American Express</label>
+            </fieldset>
+        </form>
+    </body>
+</html>
