@@ -1,0 +1,37 @@
+body {
+    color: grey;
+}
+
+/*ESTILO DE CLASES*/
+
+. {
+    color: green;
+}
+. {
+    color: blue;
+}
+. {
+    color:red;
+}
+.{
+    font-style: oblique;
+}
+. {
+    background-color: aqua;
+}
+{
+    text-shadow: 2px 2px #ff0000;
+}
+
+
+/*Estilo de Atributo*/
+ {
+    text-decoration: overline;
+}
+
+/*El primer elemento*/
+
+{
+    text-align: right
+}
+/*Añadir comentarios de antes y después del color verde */
