@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+</head>
+<body>
+    <h1>Sumatorios</h1>
+    <script>
+        var suma=0, cont=0;
+        for (let n = 1; n <= 100; n++) {
+            suma+=n;
+            if (suma>1000) {
+                break;
+            }
+            if (suma%2==1) {
+                document.write(suma+",");
+                cont++;
+            }
+            if (cont==4) {
+                document.write("<br>");
+                cont=0;
+            }
+        }
+    </script>
+</body>
+</html>
