@@ -1,0 +1,23 @@
+body{
+    column-count: 2;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+div{
+    padding: 1.2em;
+    margin-left: 2em;
+    margin-right: 2em;
+    border-radius: 15px;
+    background-color: rgba(128, 128, 128, 0.397);
+}
+.recuadro1{
+    font-family: Niconne;
+}
+@font-face {
+    font-family: Niconne;
+    src: url(../fonts/Niconne-Regular.ttf);
+}
+@import url('https://fonts.googleapis.com/css2?family=Barrio&display=swap');
+.recuadro2{
+    font-family: 'Barrio', cursive;
+}
