@@ -15,20 +15,27 @@ and open the template in the editor.
                 $rutasImagenes=array("img/img1.png","img/img2.png","img/img3.png","img/img4.png","img/img5.png","img/img6.png","img/img7.png","img/img8.png");
                 $i=1;
                 foreach ($rutasImagenes as $key => $value) {
-                    while ($i< count($rutasImagenes)) {
-                        if (md5($value)== md5($rutasImagenes[$i])) {
-                            unset($rutasImagenes[$i]);
+                    foreach ($rutasImagenes as $key2 => $value2) {
+                        if (md5_file($value) == md5_file($value2) && $key!=$key2) {
+                            unset($rutasImagenes[$key]);
                         }
                     }
-                    $i++;
                 }
-                for ($index = 0; $index < count($rutasImagenes); $index++) {
-                    echo"<tr>";
-                    for ($index1 = 0; $index1 < 3; $index1++) {
-                        echo "<td><a href=$rutasImagenes[$index]><img src=$rutasImagenes[$index]/></a></td>";
+                $cont = 0;
+                foreach ($rutasImagenes as $key => $value) {
+                    if($cont==0){
+                        echo"<tr>";
                     }
-                    echo"</tr>";
+                    if($cont<3){
+                        echo "<td><a href=$rutasImagenes[$key]><img src=$rutasImagenes[$key] width='100' height='100'/></a></td>";
+                    }else{
+                        $cont=0;
+                        echo"</tr>";
+                        echo "<td><a href=$rutasImagenes[$key]><img src=$rutasImagenes[$key] width='100' height='100'/></a></td>";
+                    }
+                    $cont++;
                 }
+                echo"</tr>";
             ?>
         </table>
     </body>
