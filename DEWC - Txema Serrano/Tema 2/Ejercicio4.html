@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var ancho=window.innerWidth;
+        var alto=window.innerHeight;
+        var resolucion=`<h3>Objetos screen</h3>
+            <p>La resolucion de pantalla es ${ancho}x${alto}</p>`;
+        document.write(resolucion);
+
+        var nomNavegador=navigator.appName;
+        var so=navigator.platform;
+        var versionNavegador=navigator.appVersion;
+        var navegador=`<h3>Objeto navigator</h3>
+            <p>El nombre del navegador que usas es: ${nomNavegador}</p>
+            <p>Usas el siguiente sistema operativo: ${so}</p>
+            <p>La versión del navegador que usas es: ${versionNavegador}</p>`;
+        document.write(navegador);
+
+        var documento=document.URL;
+        var documentos=`<h3>Objeto document</h3>
+            <p>La URL del documento es: ${documento}</p>`;
+        document.write(documentos);
+
+        var protocolos=location.protocol;
+        var locations=`<h3>Objeto location</h3>
+            <p>El protocolo usado para acceder a esta página ha sido: ${protocolos}</p>`;
+        document.write(locations);
+
+        window.status = "Bienvenido a JavaScript";
+        window.open("https://www.google.com", "_blank", "resizable=no,scrollbars=no,toolbar=no,location=no,status=no,menubar=yes,top=50,left=150,width=600,height=400");
+    </script>
+</body>
+</html>
