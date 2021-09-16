@@ -1,0 +1,16 @@
+body{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    
+}
+div {
+    height: 60px;
+    width: 170px;
+    margin: 10px;
+    padding: 30px;
+}
+span{
+    color: #2FF;
+}

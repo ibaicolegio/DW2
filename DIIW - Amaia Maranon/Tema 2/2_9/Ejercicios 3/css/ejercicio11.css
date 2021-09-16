@@ -1,0 +1,30 @@
+p.especial{
+    font-size: 1.5em;
+    line-height: 2em;
+    font-family: Verdana, Arial, sans-serif;
+    background-color: lightgrey;
+    text-indent: 60px;
+    text-align: justify;
+}
+p.especial em{
+    font-weight: bold;
+    font-style: normal;
+}
+p.especial strong{
+    font-style: oblique;
+    font-weight: normal;
+    background-color: #FF6;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    padding: 3px;
+}
+p.especial::first-line{
+    color: blue;
+    background-color: lightblue;
+    font-variant: small-caps;
+}
+p.especial::first-letter{
+    font-size: 2em;
+    font-family: serif;
+    color: blue;
+}
