@@ -8,11 +8,19 @@
 </head>
 <body>
     <script>
-        var fecha=prompt("Introduce fecha (aaaa/mm/dd)");
-        var cumple=new Date(fecha);
-        var anyos=Date.now.getFullYear-cumple.getFullYear;
-        document.write("Has nacido el "+fecha+"<br>");
-        document.write("Tienes"+anyos+"años");
+        var cumple=new Date(prompt("Introduce fecha (aaaa/mm/dd)"));
+        var dia=cumple.getDate();
+        var mes=cumple.getMonth()+1;
+        var anyo=cumple.getFullYear();
+        var fechaActual=new Date(Date.now());
+        var anyos=fechaActual.getFullYear()-anyo;
+        if (mes>=fechaActual.getMonth()+1) {
+            if (dia>fechaActual.getDate()) {
+                anyos--;
+            }
+        }
+        document.write("Has nacido el "+dia+"/"+mes+"/"+anyo+"<br>");
+        document.write("Tienes "+anyos+" años");
     </script>
 </body>
 </html>
