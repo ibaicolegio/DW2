@@ -1,0 +1,8 @@
+h1{
+    text-shadow: -8px -8px grey, 8px 8px lightgrey;
+    text-align: center;
+}
+.caja1{
+    border-image:url(../imagenes/bordes.png) 30 stretch;
+    border: 10px solid transparent;
+}
