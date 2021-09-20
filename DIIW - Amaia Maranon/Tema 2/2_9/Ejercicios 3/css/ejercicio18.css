@@ -2,7 +2,33 @@ h1{
     text-shadow: -8px -8px grey, 8px 8px lightgrey;
     text-align: center;
 }
+div{
+    margin: 10px;
+}
 .caja1{
-    border-image:url(../imagenes/bordes.png) 30 stretch;
-    border: 10px solid transparent;
+    border: 15px solid transparent;
+    padding: 15px;
+    border-image:url("../imagenes/bordes.png") 20 stretch;
+    background-color: darkgray;
+}
+.caja1::first-letter{
+    font-size: 2em;
+}
+.caja2{
+    border: 15px solid transparent;
+    padding: 15px;
+    border-image:url("../imagenes/bordes.png") 20 round;
+    background-color: darkgray;
+}
+.caja2::first-letter{
+    font-size: 2em;
+}
+.caja3{
+    border: 15px solid transparent;
+    padding: 15px;
+    border-image:url("../imagenes/bordes.png") 20 repeat;
+    background-color: darkgray;
+}
+.caja3::first-letter{
+    font-size: 2em;
 }

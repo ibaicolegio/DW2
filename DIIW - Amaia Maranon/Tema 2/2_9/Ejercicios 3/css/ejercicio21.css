@@ -1,0 +1,26 @@
+div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 30px;
+}
+.recuadro1{
+    height: 250px;
+    width: 200px;
+    padding: 0px 10px;
+    background-color: gainsboro;
+    border: 2px solid gainsboro;
+    border-radius: 20px;
+    justify-content: left;
+    box-shadow: 10px 10px 7px darkgrey;
+}
+.recuadro2{
+    height: 250px;
+    width: 200px;
+    padding: 0px 10px;
+    background-color: olive;
+    border: 2px solid olive;
+    border-radius: 20px;
+    justify-content: left;
+    box-shadow: -10px -10px 7px darkgrey;
+}
