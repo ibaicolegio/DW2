@@ -89,3 +89,102 @@ header, nav, aside, footer, section, .contenedor{
 nav{
     border-bottom: 1px solid #004C99;
 }
+.noticias{
+    border: 1px solid #C5C5C5;
+}
+.publicidad{
+    border: 1px dashed #CC6600;
+}
+.lateral2{
+    border: 1px solid #CC6600;
+}
+footer{
+    border-top: 1px solid #C5C5C5;
+    border-bottom: 1px solid #C5C5C5;
+}
+/* ===============================================================
+Parte 3
+================================================================== */
+.noticias, footer{
+    background-color: #CCCCCC;
+}
+.publicidad{
+    background-color: #FFFF33;
+}
+.lateral2 h2{
+    background-color: #DB905C;
+    padding: 0.2em;
+}
+nav{
+    background-color: darkblue;
+}
+header h1{
+    background-image: url(../imagenes/logo.gif);
+}
+/* ===============================================================
+Parte 4
+================================================================== */
+body{
+    font-family: Arial;
+    color: black;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+section article h2{
+    color: #CC6600;
+    font-size: 1.6em;
+    line-height: 1.2em;
+    margin-bottom: 0.3em;
+}
+.menu_principal li a{
+    margin-right: 1em;
+    color: white;
+    font-size: 1.3em;
+}
+.lateral1{
+    font-size: 0.9em;
+}
+.noticias .fecha{
+    display: block;
+    color: #999;
+    text-align: right;
+}
+.noticias h2 a{
+    color:#003366;
+}
+.publicidad{
+    color: #555;
+}
+.publicidad a{
+    color: #CC6600;
+}
+section article a{
+    color: #CC6600;
+}
+section article p{
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+.lateral2 h2{
+    color: #FFF;
+    font-size: 1em;
+}
+footer{
+    color: #555;
+    font-size: 0.75em;
+}
+section article p{
+    text-align: justify;
+    line-height: 1.8em;
+}
+section article p::first-letter{
+    margin-left: 2em;
+    font-size: 2em;
+    font-family: Times New Roma;
+}
+section article h2{
+    word-spacing: .3em;
+}
+.menu_principal a{
+    letter-spacing: 0.3em;
+}
