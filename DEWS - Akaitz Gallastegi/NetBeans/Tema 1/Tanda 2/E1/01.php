@@ -68,7 +68,7 @@ and open the template in the editor.
                 </tr>
             </table>
             <?php
-                if (isset($_POST['cesar']) && isset($_POST['desplazamientos']) && isset($_POST['texto'])) {
+                if (isset($_POST['cesar']) && isset($_POST['desplazamientos']) && !empty($_POST['texto'])) {
                    $texto=strtoupper($_POST['texto']);
                    $resultado="";
                    for ($i = 0; $i < strlen($texto); $i++) {
