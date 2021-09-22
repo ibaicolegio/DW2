@@ -32,7 +32,7 @@
                         }
                 ?>
             </select><br>
-            <input type="submit" value="VER IMAGENES">
+            <input type="submit" name="accion1" value="VER IMAGENES">
         </form>
         
     </body>
