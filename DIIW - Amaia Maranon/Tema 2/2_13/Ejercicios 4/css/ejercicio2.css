@@ -1,0 +1,41 @@
+h1{
+    text-align: center;
+}
+.normal{
+    font-size: 1.5em;
+    text-decoration: underline;
+    color: red;
+    border: none;
+}
+div div{
+    font-weight: bold;
+    border:black thick solid;
+    width: 25%;
+    height: 75px;
+    margin-top: 12px;
+}
+.c1{
+    background-color: red;
+    position: relative;
+}
+.c2{
+    background-color: blue;
+    position: relative;
+    left: 100;
+    top:-50;
+}
+.c3{
+    background-color: green;
+    position: relative;
+}
+.c4{
+    background-color: skyblue;
+    position: relative;
+    left: 250;
+    top:-200;
+}
+.c5{
+    background-color: palegreen;
+    position: relative;
+    right: 50;
+}
