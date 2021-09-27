@@ -4,10 +4,18 @@
     $gestor=fopen("usuarios.txt", "r");
     while ($linea = fgets($gestor)) {
         $usuario = explode(";", $linea);
-        if ($usuario[0]==$nombre && $usuario[1]!=$pass) {
-            header("Location: login.php?nombre=".$usuario[0]);
+        $usuario[0]=trim($usuario[0]);
+        $usuario[1]=trim($usuario[1]);
+        if ($usuario[0]==$nombre && $usuario[1]==$pass){
+            header("Location: charla.php");
+            exit();
+        } elseif ($usuario[0]==$nombre && trim($usuario[1])!=$pass) {
+            header("Location: login.php?nombre=".$nombre);
             exit();
         }
     }
+    header("Location: alta.php?nombre=".$nombre);
+    exit();
+    fclose($gestor);
 ?>
 

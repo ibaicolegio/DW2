@@ -7,7 +7,7 @@
         <?php
             if(isset($_GET['nombre'])){
                 $nombre=$_GET['nombre'];
-                echo "CONTRASEÑA ERRÓNEA PARA ".$nombre."<br>";
+                echo "CONTRASEÑA ERRÓNEA PARA <strong>".$nombre."</strong><br>";
                 echo "Inténtalo de nuevo";
             }
         ?>
