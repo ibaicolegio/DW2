@@ -1,0 +1,17 @@
+body{
+    font-size: .7em;
+    font-family: arial;
+    text-align: justify;
+}
+div:first-child{
+    background-image: url(../imagenes/arriba.gif);
+    background-repeat: no-repeat;
+    background-position: center top;
+    border: 2px grey solid;
+    width: 600px;
+}
+div:first{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
