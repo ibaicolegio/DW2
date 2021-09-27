@@ -11,7 +11,7 @@
             } else {
                 $cant=0;
             }
-            if (isset($_POST['enviar']) && is_uploaded_file($_FILES['archivo']['tmp_name'])) {
+            if (isset($_POST['enviado']) && is_uploaded_file($_FILES['archivo']['tmp_name'])) {
                 $ruta=$_FILES['archivo']['tmp_name'];
                 $rutaNueva=$_POST['nombre'];
                 move_uploaded_file($ruta,$rutaNueva.".txt");
@@ -33,8 +33,8 @@
                     echo    "<td>".$texto[1]."</td>";
                     $cant2=$cant+floatval($texto[1]);
                     echo    "<td><a href='?cant=".$cant2."'>Añadir unidad</a></td>";
-                    if (file_exists($texto[0]."txt")) {
-                        echo "<td><a href=".$rutaNueva.".txt'>Añadir unidad</a></td>";
+                    if (file_exists($texto[0].".txt")) {
+                        echo "<td><a href=".$texto[0].'.txt'.">Ver descripcion</a></td>";
                     }
                     echo "</tr>";
                 }
