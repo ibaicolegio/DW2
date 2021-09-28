@@ -45,8 +45,8 @@
         <?php
             }else{
                 $login=$_GET['login'];
-                echo $login.": Has sido dado de alta";
-                echo "<h2><a href='charla.php'>ENTRAR AL CHAT</a></h2>";
+                echo "<strong>".$login."</strong>: Has sido dado de alta";
+                echo "<h2><a href='charla.php?nombre=".$login."'>ENTRAR AL CHAT</a></h2>";
             }
         ?>
     </body>

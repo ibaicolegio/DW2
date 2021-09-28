@@ -7,7 +7,7 @@
         $usuario[0]=trim($usuario[0]);
         $usuario[1]=trim($usuario[1]);
         if ($usuario[0]==$nombre && $usuario[1]==$pass){
-            header("Location: charla.php");
+            header("Location: charla.php?nombre=".$nombre);
             exit();
         } elseif ($usuario[0]==$nombre && trim($usuario[1])!=$pass) {
             header("Location: login.php?nombre=".$nombre);
