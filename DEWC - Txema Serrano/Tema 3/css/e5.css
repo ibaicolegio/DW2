@@ -1,0 +1,7 @@
+table{
+    border:solid 1px black;
+}
+button{
+    width: 100%;
+    table-layout: auto;
+}
