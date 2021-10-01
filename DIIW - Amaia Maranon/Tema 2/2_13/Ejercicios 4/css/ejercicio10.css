@@ -3,15 +3,70 @@ body{
     font-family: arial;
     text-align: justify;
 }
-div:first-child{
+.cajaarriba{
     background-image: url(../imagenes/arriba.gif);
     background-repeat: no-repeat;
     background-position: center top;
     border: 2px grey solid;
     width: 600px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
-div:first{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.cajaabajo{
+    background-image: url(../imagenes/abajo.gif);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    padding: 58px 75px;
+}
+p:first-of-type{
+    background-color: lightblue;
+    line-height : 20px;
+    width: 300px;
+    margin: auto;
+}
+.cajita1{
+    background-color: #ccf;
+    float: right;
+    margin: 11px;
+    padding: 15px;
+    text-align: center;
+    width: 150px;
+}
+.cajita2{
+    background-color: #c9f;
+    float: left;
+    margin: 11px;
+    padding: 10px;
+    text-align: center;
+    width: 60px;
+}
+p:nth-of-type(2){
+    background-color: cyan;
+    padding: 10px;
+
+}
+img:nth-of-type(1){
+    float: left;
+}
+p:nth-of-type(3){
+    background-color: lime;
+    padding: 10px;
+}
+p:nth-of-type(4){
+    background-color: yellow;
+    padding: 10px;
+}
+.contenedor img{
+    float: right;
+}
+a{
+    background-color: cyan;
+    display: block;
+    clear: both;
+}
+.regalo{
+    float: left;
+}
+p:last-of-type{
+    clear: both;
 }

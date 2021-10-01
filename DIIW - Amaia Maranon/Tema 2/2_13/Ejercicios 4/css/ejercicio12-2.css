@@ -1,0 +1,50 @@
+.contenedor{
+    background-color: black;
+    display: flex;
+    flex: auto;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: baseline;
+    height: 325px;
+    width: 210px;
+    padding: 5px;
+    margin: auto;
+}
+#d1{
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: grey;
+    color: white;
+}
+#d2{
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: grey;
+    color: white;
+}
+#d3{
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: grey;
+    color: white;
+}
+#d4{
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: grey;
+    color: white;
+    flex-grow: 0.2;
+}
