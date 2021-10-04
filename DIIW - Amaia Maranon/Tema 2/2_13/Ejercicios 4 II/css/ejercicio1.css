@@ -1,0 +1,28 @@
+body{
+    display: grid;
+    color: white;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 100px 75px 200px 50px;
+    grid-template-areas: "head head" 
+        "nav nav" "aside section" "footer footer" 
+}
+header{
+    background-color: purple;
+    grid-area: head;
+}
+nav{
+    background-color: skyblue;
+    grid-area: nav;
+}
+aside{
+    background-color: magenta;
+    grid-area: aside;
+}
+section{
+    background-color: blueviolet;
+    grid-area: section;
+}
+footer{
+    background-color: purple;
+    grid-area: footer;
+}
