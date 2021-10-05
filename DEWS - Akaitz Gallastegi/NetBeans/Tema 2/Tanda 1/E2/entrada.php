@@ -9,12 +9,16 @@
             if (isset($_GET['error'])) {
                 $error="Combinación errónea de usuario-password";
             }
+            $usuario="";
+            if (isset($_COOKIE['usuario'])){
+                $usuario=$_COOKIE['usuario'];
+            }
         ?>
         <p style="color: red"><?php echo $error ?></p>
         <p>Si eres SOCIO, introduce tu usuario y tu password</p>
         <form action="autenticacion.php" method="POST" enctype="multipart/form-data">
             <label for="usuario">USUARIO:</label>
-            <input type="text" name="usuario" id="usuario"/>
+            <input type="text" name="usuario" id="usuario" value="<?php echo $usuario ?>"/>
             <br><br>
             <label for="password">PASSWORD:</label>
             <input type="password" name="password" id="password"/>

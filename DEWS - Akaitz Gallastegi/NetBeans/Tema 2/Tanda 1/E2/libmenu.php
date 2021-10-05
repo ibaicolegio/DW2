@@ -16,7 +16,7 @@
         while(!feof($gestor)){
             $linea=fgets($gestor);
             $separado=explode(" ", $linea);
-            if($usuario==$separado[0]){
+            if($nombre==$separado[0]){
                 return $separado[2];
             } 
         }
