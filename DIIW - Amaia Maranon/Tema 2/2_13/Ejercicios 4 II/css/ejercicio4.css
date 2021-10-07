@@ -1,0 +1,83 @@
+body{
+    display: grid;
+    grid-template-columns: 1fr repeat(3, 250px) 1fr;
+    grid-template-rows: 1fr repeat(2, 150px);
+    grid-template-areas: 
+        "head head head head head" 
+        "xy i1 i2 i3 xx"
+        "xy i4 i5 i6 xx";
+    grid-gap: 25px;
+}
+h1{
+    text-align: left;
+    float: left;
+    font-size: 5em;
+}
+#pa{
+    position: absolute;
+    top: 30%;
+    right: 15%;
+}
+#pb{
+    position: absolute;
+    top: 40%;
+    right: 5%;
+}
+#head{
+    grid-area: head;
+    background-image: url(../img/gatoPortada.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+#i1{
+    grid-area: i1;
+    background-image: url(../img/gato1.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+#i2{
+    grid-area: i2;
+    background-image: url(../img/gato2.jpeg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+#i3{
+    grid-area: i3;
+    background-image: url(../img/gato3.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+#i4{
+    grid-area: i4;
+    background-image: url(../img/gato4.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+#i5{
+    grid-area: i5;
+    background-image: url(../img/gato5.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+#i6{
+    grid-area: i6;
+    background-image: url(../img/gato6.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.pc{
+    position: absolute;
+    bottom: 0%;
+    background-color: rgba(255,255,255,40%);
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+}

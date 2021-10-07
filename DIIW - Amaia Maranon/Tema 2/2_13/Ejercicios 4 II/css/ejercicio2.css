@@ -1,9 +1,11 @@
 body{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 40% 20% 40%;
+    grid-template-rows: repeat(3, 100%);
     grid-template-areas: "d1 d1 d1"
         "d2 d0  d3" "d2 d4 d4";
+    text-align: center;
+    grid-gap: 5px;
 }
 #d1{
     grid-area: d1;
