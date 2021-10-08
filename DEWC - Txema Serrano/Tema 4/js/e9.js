@@ -1,21 +1,30 @@
+var fechaString;
+var fecha;
+
 window.onload=function () {
+    const diaSemana=new Array("Domingo","Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado");
     do {
-        var fechaString=prompt("Introduce una fecha (dd/mm/aaaa)");
-        fechaSeparada=fechaString.split("/");
-        fecha=new Date(fechaSeparada[2],fechaSeparada[1],fechaSeparada[0]);
-    } while (!(fecha instanceof Date && !isNaN(fecha)));
-    var tabla="<table border=1><tr><td>el año...</td>";
+        fechaString=prompt("Introduce una fecha (dd/mm/aaaa)");
+    } while (fechaValida());
+    var tabla="<table border=1 style='margin: auto'><tr><td>el año...</td>";
     for (let i = 4; i >= 0; i--) {
-        tabla.concat("<td>"+fecha.getFullYear()-i+"</td>");
+        tabla=tabla.concat("<td>"+(fecha.getFullYear()-i)+"</td>");
     }
-    tabla.concat("</tr><tr><td>era un...</td>");
+    tabla=tabla.concat("</tr><tr><td>era un...</td>");
     for (let i = 4; i >= 0; i--) {
-        var fechaNueva=new Date(fecha.getDate()+" "+fecha.getMonth()+" "+fecha.getFullYear()-i);
-        tabla.concat("<td>"+fechaNueva.-i+"</td>");
+        var fechaNueva=new Date(fecha.getFullYear()-i,fecha.getMonth()-1,fecha.getDate());
+        tabla=tabla.concat("<td>"+diaSemana[fechaNueva.getDay()]+"</td>");
     }
-    tabla.concat("</tr></table>");
+    tabla=tabla.concat("</tr></table>");
     var contenido="<h1>VALIDANDO FECHAS</h1>"+
         "Fecha introducida: "+fecha.getDate()+"/"+fecha.getMonth()+"/"+fecha.getFullYear()+"<br>"
-        "Ese mismo dia en...<br>"+
-        tabla;
+        "Ese mismo dia en...<br>";
+    contenido=contenido.concat(tabla);
+    document.getElementById('body').innerHTML=contenido;
+}
+
+function fechaValida() {
+    fechaSeparada=fechaString.split("/");
+    fecha=new Date(fechaSeparada[2],fechaSeparada[1],fechaSeparada[0]);
+    return (!(fecha instanceof Date && !isNaN(fecha)));
 }
