@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/e2.js"></script>
+    <title>Document</title>
+</head>
+<body style="text-align: center;">
+    <h1>RADIO BUTTON</h1>
+    <p>Selecciona las opciones deseadas</p>
+    <table border="1" style="margin: auto; width: 500px;">
+        <tr>
+            <th>Procesador</th>
+            <th>Sistema Operativo</th>
+        </tr>
+        <tr style="text-align: left;">
+            <td>
+                <input type="radio" name ="procesador" id="procesador1" value="Mac Pro 2,0 Mhz" checked>
+                <label for="procesador1">Mac Pro 2,0 Mhz</label><br>
+                <input type="radio" name ="procesador" id="procesador2" value="Intel i3 1,9 Mhz">
+                <label for="procesador2">Intel i3 1,9 Mhz</label><br>
+                <input type="radio" name ="procesador" id="procesador3" value="Intel i5 2,2 Mhz">
+                <label for="procesador3">Intel i5 2,2 Mhz</label>
+            </td>
+            <td>
+                <input type="radio" name ="so" id="so1" value="Windows XP" checked>
+                <label for="so1">Windows XP</label><br>
+                <input type="radio" name ="so" id="so2" value="Windows 7">
+                <label for="so2">Windows 7</label><br>
+                <input type="radio" name ="so" id="so3" value="Windows Server 2008">
+                <label for="so3">Windows Server 2008</label>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <button onclick="enviar()">Enviar</button>
+    <button onclick="limpiar()">Limpiar</button>
+</body>
+</html>
