@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/e4.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1 style="padding-left: 200px;">FORMULARIO</h1>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" size="50" autofocus><br>
+    
+        <label for="dni">DNI:</label>
+        <input type="number" id="dni" min="10000000" max="99999999" onblur="comprobarDNI()" style="width: 6em;">
+        <label for="letra">Letra:</label>
+        <input type="text" id="letra" size="1"><br>
+    
+        <label for="clave">Clave:</label>
+        <input type="password" id="clave" size="8"><br>
+    
+        <label for="opinion">Opinión:</label><br>
+        <textarea id="opinion" cols="80" rows="10"></textarea><br>
+    
+        <label for="maxCaracteres">Número máximo de caracteres:</label>
+        <input type="number" id="maxCaracteres" style="width: 2.5em;"><br>
+    
+        <label for="mayorEdad">Mayor de edad:</label>
+        <input type="checkbox" id="mayorEdad"><br>
+    
+        <label>Sexo: </label>
+        <label for="masculino">Masculino</label>
+        <input type="radio" name="sexo" id="masculino" checked>
+        <label for="femenino">Femenino</label>
+        <input type="radio" name="sexo" id="femenino"><br>
+    
+        <label>Sueldo anual: </label>
+        <label for="menos10000">menos de 10.000€</label>
+        <input type="radio" name="sueldo" id="menos10000">
+        <label for="de10000a20000">de 10.000€ a 20.000€</label>
+        <input type="radio" name="sueldo" id="de10000a20000">
+        <label for="masDe10000">mas de 20.000€</label>
+        <input type="radio" name="sueldo" id="masDe10000"><br>
+    
+        <label for="fichero">Fichero:</label>
+        <input type="file" id="fichero"><br>
+    
+        <label for="provincia">Provincia:</label>
+        <select id="provincia">
+            <option value="alava" selected>Alava</option>
+            <option value="bizkaia">Bizkaia</option>
+            <option value="gipuzkoa">Gipuzkoa</option>
+        </select>
+        <label for="hobbies">Hobbies:</label>
+        <select id="hobbies" size="3" multiple>
+            <option value="chat" selected>Chat</option>
+            <option value="juegos">Juegos</option>
+            <option value="arte">Arte</option>
+        </select><br><br>
+        <div style="left: 200px;position: absolute;">
+            <button onclick="enviar()">Enviar</button>
+            <button onclick="limpiar()">Limpiar</button>
+        </div>
+    </div>
+    <div style="position: absolute; right: 0; background-color: gray;"></div>
+</body>
+</html>
