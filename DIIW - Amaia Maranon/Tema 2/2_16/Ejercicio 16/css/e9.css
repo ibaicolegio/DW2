@@ -1,0 +1,34 @@
+ul.menu{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    margin-left: 0px;
+    list-style: none;
+    
+}
+ul.menu li{
+    border: 1px solid lightgrey;
+    background-color: lightcyan;
+    display: inline-block;
+    width: 120px
+}
+li a{
+    background: url(../imagenes/flecha_inactiva.png) no-repeat left center, lightcyan;
+    color: grey;
+    background-position: 3px;
+    text-decoration: none;
+    padding-top: .2em;
+    padding-left:  1.5em;
+    padding-bottom: .2em;
+    display: block;
+    
+}
+li a:hover{
+    background: url(../imagenes/flecha_activa.png) no-repeat left center, cyan;
+    color: white;
+    background-position: 3px;
+    
+}
+li:hover{
+    background-color: cyan;
+}

@@ -1,0 +1,24 @@
+ul{
+    display: grid;
+    grid-template-columns: repeat(5, 150px);
+}
+li{
+    border-top: 4px solid #edcbcb;
+    list-style: none;    
+    margin: 20px;
+}
+a{
+    text-decoration: none;
+    font-family: Verdana, Georgia,"Times New Roman", Times;
+    font-weight: bold;
+    font-size: 12px;
+    color: #953434;
+}
+span{
+    font-size: 9px;
+    line-height: 15px;
+}
+li:hover{
+    border-top: 4px solid #953434;
+    color: #953434;
+}
