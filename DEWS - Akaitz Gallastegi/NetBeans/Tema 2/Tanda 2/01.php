@@ -11,6 +11,7 @@ and open the template in the editor.
     </head>
     <body>
         <?php
+            session_start();
             //(input)texto[], (select)cantidad[], (option)value=0-10,(checkbox)grabar[]
             //Comprobaciones:
             $text=array("","","","","","","","");
@@ -65,6 +66,15 @@ and open the template in the editor.
                 $tabla.="</select></td>"
                         . "<td><input type='checkbox' name='grabar$x' id='grabar$a' $check>"
                         . "<label for='grabar$a'>Grabar fallos</label></td></tr>";
+            }
+            //Sesion:
+            if(isset($_POST['texto']) && isset($_POST['cantidad'])){
+                $_SESSION['tipo']=$_POST['texto'];
+                $i=0;
+                foreach ($_SESSION['tipo'] as $key => $value) {
+                    $_SESSION['cantidad'][$value]=$_POST['cantidad'][$i];
+                    $i++;
+                }
             }
             //Mensaje:
             if(isset($_POST['enviar'])){
