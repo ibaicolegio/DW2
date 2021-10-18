@@ -16,7 +16,7 @@
         <label for="dni">DNI:</label>
         <input type="number" id="dni" min="10000000" max="99999999" onblur="comprobarDNI()" style="width: 6em;">
         <label for="letra">Letra:</label>
-        <input type="text" id="letra" size="1"><br>
+        <input type="text" id="letra" size="1" disabled><br>
     
         <label for="clave">Clave:</label>
         <input type="password" id="clave" size="8"><br>
@@ -25,14 +25,14 @@
         <textarea id="opinion" cols="80" rows="10"></textarea><br>
     
         <label for="maxCaracteres">Número máximo de caracteres:</label>
-        <input type="number" id="maxCaracteres" style="width: 2.5em;"><br>
+        <input type="number" id="maxCaracteres" style="width: 2.5em;" value="50" onblur="comprobarNumMaxCaracteres()"><br>
     
         <label for="mayorEdad">Mayor de edad:</label>
         <input type="checkbox" id="mayorEdad"><br>
     
-        <label>Sexo: </label>
+        <label id="genero">Sexo: </label>
         <label for="masculino">Masculino</label>
-        <input type="radio" name="sexo" id="masculino" checked>
+        <input type="radio" name="sexo" id="masculino">
         <label for="femenino">Femenino</label>
         <input type="radio" name="sexo" id="femenino"><br>
     
@@ -40,7 +40,7 @@
         <label for="menos10000">menos de 10.000€</label>
         <input type="radio" name="sueldo" id="menos10000">
         <label for="de10000a20000">de 10.000€ a 20.000€</label>
-        <input type="radio" name="sueldo" id="de10000a20000">
+        <input type="radio" name="sueldo" id="de10000a20000" checked>
         <label for="masDe10000">mas de 20.000€</label>
         <input type="radio" name="sueldo" id="masDe10000"><br>
     
@@ -49,9 +49,10 @@
     
         <label for="provincia">Provincia:</label>
         <select id="provincia">
-            <option value="alava" selected>Alava</option>
-            <option value="bizkaia">Bizkaia</option>
-            <option value="gipuzkoa">Gipuzkoa</option>
+            <option value="0" selected>Elegir provincia</option>
+            <option value="1">Alava</option>
+            <option value="2">Bizkaia</option>
+            <option value="3">Gipuzkoa</option>
         </select>
         <label for="hobbies">Hobbies:</label>
         <select id="hobbies" size="3" multiple>
