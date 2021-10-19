@@ -76,6 +76,15 @@ and open the template in the editor.
                     $i++;
                 }
             }
+            //Grabar:
+            $grabaciones=array();
+            for ($i=0; $i<8; $i++){
+                $nombre="grabar".($i+1);
+                if(isset($_POST[$nombre])){
+                    array_push($grabaciones, $_POST['texto'][$i]);
+                }
+            }
+            $_SESSION['grabacion']=$grabaciones;
             //Mensaje:
             if(isset($_POST['enviar'])){
                 if($cant<3)
