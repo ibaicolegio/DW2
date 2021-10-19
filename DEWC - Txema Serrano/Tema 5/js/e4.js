@@ -34,7 +34,7 @@ function enviar() {
     var nombre=document.getElementById("nombre");
     var dni=document.getElementById("dni");
     var clave=document.getElementById("clave");
-    var genero=document.getElementById("clave");
+    var genero=document.getElementById("genero");
     var sexo=document.getElementsByName("sexo");
     var provincia=document.getElementById("provincia");
     var seleccionado=false;
@@ -50,7 +50,7 @@ function enviar() {
                         seleccionado=true;
                         if(provincia.value>0){
                             provincia.style.backgroundColor="white";
-                            
+                            datosFormulario();
                         } else {
                             alert("No has seleccionado la provincia");
                             provincia.style.backgroundColor="red";
@@ -73,4 +73,72 @@ function enviar() {
         alert("No has introducido el nombre");
         nombre.style.backgroundColor="red";
     }
+}
+
+function datosFormulario() {
+    //document.getElementById("enviar").disabled="disabled";
+    var nombre=document.getElementById("nombre");
+    var dni=document.getElementById("dni");
+    var clave=document.getElementById("clave");
+    var provincia=document.getElementById("provincia");
+    var sexos=document.getElementsByName("sexo");
+    var sexo="";
+    for (const iterator of sexos) {
+        if (iterator.checked) {
+            sexo=iterator;
+        }
+    }
+    //Opcionales
+    var opinion=document.getElementById("opinion");
+    var longitud=document.getElementById("maxCaracteres");
+    var mayorDeEdad=document.getElementById("mayorEdad");
+    var sueldos=document.getElementsByName("sueldo");
+    var fichero=document.getElementById("fichero");
+    var hobbiess=document.getElementById("hobbies");
+    var sueldo="";
+    var hobbies="";
+    for (const iterator of sueldos) {
+        if (iterator.checked) {
+            sueldo=iterator;
+        }
+    }
+    for (const iterator of hobbiess) {
+        if (iterator.selected) {
+            hobbies+=iterator.innerHTML+", ";
+        }
+    }
+    hobbies=hobbies.slice(0,-2).replace(/,(?=[^,]*$)/, " y ");
+    if (mayorDeEdad.checked) {
+        document.getElementById("txtMayorDeEdad").style.display="block";
+    } else {
+        document.getElementById("txtMenorDeEdad").style.display="block";
+    }
+
+    if (opinion.value!="") {
+        document.getElementById("txtOpinion").style.display="block";
+        document.getElementById("txtOpinion").innerHTML+=opinion.value;
+    }
+    if (longitud.value!="") {
+        document.getElementById("txtLongitud").style.display="block";
+        document.getElementById("txtLongitud").innerHTML+=longitud.value;
+    }
+    if (sueldo!="") {
+        document.getElementById("txtSueldo").style.display="block";
+        document.getElementById("txtSueldo").innerHTML+=sueldo.value;
+    }
+    if (fichero.value!="") {
+        document.getElementById("txtFichero").style.display="block";
+        document.getElementById("txtFichero").innerHTML+=fichero.value;
+    }
+    if (hobbies!="") {
+        document.getElementById("txtHobbies").style.display="block";
+        document.getElementById("txtHobbies").innerHTML+=hobbies;
+    }
+
+    document.getElementById("datosFormulario").style.visibility="visible";
+    document.getElementById("txtNombre").innerHTML+=nombre.value;
+    document.getElementById("txtDNI").innerHTML+=dni.value;
+    document.getElementById("txtClave").innerHTML+=clave.value;
+    document.getElementById("txtProvincia").innerHTML+=provincia.id+"--"+provincia.value;
+    document.getElementById("txtSexo").innerHTML+=sexo.id;
 }

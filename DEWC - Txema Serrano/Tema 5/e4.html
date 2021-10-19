@@ -9,62 +9,78 @@
 </head>
 <body>
     <div>
-        <h1 style="padding-left: 200px;">FORMULARIO</h1>
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" size="50" autofocus><br>
-    
-        <label for="dni">DNI:</label>
-        <input type="number" id="dni" min="10000000" max="99999999" onblur="comprobarDNI()" style="width: 6em;">
-        <label for="letra">Letra:</label>
-        <input type="text" id="letra" size="1" disabled><br>
-    
-        <label for="clave">Clave:</label>
-        <input type="password" id="clave" size="8"><br>
-    
-        <label for="opinion">Opinión:</label><br>
-        <textarea id="opinion" cols="80" rows="10"></textarea><br>
-    
-        <label for="maxCaracteres">Número máximo de caracteres:</label>
-        <input type="number" id="maxCaracteres" style="width: 2.5em;" value="50" onblur="comprobarNumMaxCaracteres()"><br>
-    
-        <label for="mayorEdad">Mayor de edad:</label>
-        <input type="checkbox" id="mayorEdad"><br>
-    
-        <label id="genero">Sexo: </label>
-        <label for="masculino">Masculino</label>
-        <input type="radio" name="sexo" id="masculino">
-        <label for="femenino">Femenino</label>
-        <input type="radio" name="sexo" id="femenino"><br>
-    
-        <label>Sueldo anual: </label>
-        <label for="menos10000">menos de 10.000€</label>
-        <input type="radio" name="sueldo" id="menos10000">
-        <label for="de10000a20000">de 10.000€ a 20.000€</label>
-        <input type="radio" name="sueldo" id="de10000a20000" checked>
-        <label for="masDe10000">mas de 20.000€</label>
-        <input type="radio" name="sueldo" id="masDe10000"><br>
-    
-        <label for="fichero">Fichero:</label>
-        <input type="file" id="fichero"><br>
-    
-        <label for="provincia">Provincia:</label>
-        <select id="provincia">
-            <option value="0" selected>Elegir provincia</option>
-            <option value="1">Alava</option>
-            <option value="2">Bizkaia</option>
-            <option value="3">Gipuzkoa</option>
-        </select>
-        <label for="hobbies">Hobbies:</label>
-        <select id="hobbies" size="3" multiple>
-            <option value="chat" selected>Chat</option>
-            <option value="juegos">Juegos</option>
-            <option value="arte">Arte</option>
-        </select><br><br>
-        <div style="left: 200px;position: absolute;">
-            <button onclick="enviar()">Enviar</button>
-            <button onclick="limpiar()">Limpiar</button>
-        </div>
+        <form>
+            <h1 style="padding-left: 200px;">FORMULARIO</h1>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" size="50" autofocus><br>
+        
+            <label for="dni">DNI:</label>
+            <input type="number" id="dni" min="10000000" max="99999999" onchange="comprobarDNI()" style="width: 6em;">
+            <label for="letra">Letra:</label>
+            <input type="text" id="letra" size="1" disabled><br>
+        
+            <label for="clave">Clave:</label>
+            <input type="password" id="clave" size="8"><br>
+        
+            <label for="opinion">Opinión:</label><br>
+            <textarea id="opinion" cols="80" rows="10"></textarea><br>
+        
+            <label for="maxCaracteres">Número máximo de caracteres:</label>
+            <input type="number" id="maxCaracteres" style="width: 2.5em;" value="50" onchange="comprobarNumMaxCaracteres()"><br>
+        
+            <label for="mayorEdad">Mayor de edad:</label>
+            <input type="checkbox" id="mayorEdad"><br>
+        
+            <label id="genero">Sexo: </label>
+            <label for="masculino">Masculino</label>
+            <input type="radio" name="sexo" id="masculino">
+            <label for="femenino">Femenino</label>
+            <input type="radio" name="sexo" id="femenino"><br>
+        
+            <label>Sueldo anual: </label>
+            <label for="menos10000">menos de 10.000€</label>
+            <input type="radio" name="sueldo" id="menos10000" value="menos de 10.000€">
+            <label for="de10000a20000">de 10.000€ a 20.000€</label>
+            <input type="radio" name="sueldo" id="de10000a20000" value="de 10.000€ a 20.000€" checked>
+            <label for="masDe10000">mas de 20.000€</label>
+            <input type="radio" name="sueldo" id="masDe10000" value="mas de 20.000€"><br>
+        
+            <label for="fichero">Fichero:</label>
+            <input type="file" id="fichero"><br>
+        
+            <label for="provincia">Provincia:</label>
+            <select id="provincia">
+                <option value="0" selected>Elegir provincia</option>
+                <option value="1">Alava</option>
+                <option value="2">Bizkaia</option>
+                <option value="3">Gipuzkoa</option>
+            </select>
+            <label for="hobbies">Hobbies:</label>
+            <select id="hobbies" size="3" multiple>
+                <option value="chat" selected>Chat</option>
+                <option value="juegos">Juegos</option>
+                <option value="arte">Arte</option>
+            </select><br><br>
+            <div style="left: 200px;position: absolute;">
+                <input type="button" onclick="enviar()" value="Enviar">
+                <input type="reset" value="Limpiar">
+            </div>
+        </form>
     </div>
-    <div style="position: absolute; right: 0; background-color: gray;"></div>
+    <div id="datosFormulario" style="position: absolute;left:900px; top:0; width:500px;background-color: gray; visibility: hidden ;">
+        <h2 style="text-align: center; color: blue;">Datos del formulario</h2>
+        <p id="txtNombre"><b>Nombre:</b> </p>
+        <p id="txtDNI"><b>DNI:</b> </p>
+        <p id="txtClave"><b>Clave:</b> </p>
+        <p id="txtOpinion" style="display: none;"><b>Opinión:</b> </p>
+        <p id="txtLongitud" style="display: none;"><b>Longitud de la opinión:</b> </p>
+        <p id="txtMayorDeEdad" style="display: none;"><b>Si</b> es mayor de edad</p>
+        <p id="txtMenorDeEdad" style="display: none;"><b>No</b> es mayor de edad</p>
+        <p id="txtSexo"><b>Sexo:</b> </p>
+        <p id="txtSueldo" style="display: none;"><b>Sueldo:</b> </p>
+        <p id="txtFichero" style="display: none;"><b>Fichero:</b> </p>
+        <p id="txtProvincia"><b>Provincia:</b> </p>
+        <p id="txtHobbies" style="display: none;"><b>Hobbie(s):</b> </p>
+    </div>
 </body>
 </html>
