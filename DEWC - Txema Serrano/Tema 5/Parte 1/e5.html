@@ -17,14 +17,14 @@
         <input id="email" type="email"><br>
 
         <label for="cp">Codigo Postal:</label>
-        <input id="cp" type="number"><br>
+        <input id="cp" type="number" min="1000" max="99999"><br>
 
         <label for="fecha">Fecha (dd/mm/aaaa):</label>
         <input id="fecha" type="date"><br><br>
 
         <div style="text-align: center;">
-            <input type="submit" onclick="enviar()">
-            <input type="reset">
+            <input type="button" onclick="enviar()" value="Enviar">
+            <input type="reset" value="Borrar">
         </div>
     </form>
 </body>
