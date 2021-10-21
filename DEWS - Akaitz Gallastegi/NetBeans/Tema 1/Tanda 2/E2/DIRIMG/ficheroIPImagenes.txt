@@ -6,3 +6,8 @@
 ::1
 ::1 img4.png/
 ::1 img2.png/
+::1 img6.png/
+::1 img3.png/ img4.png/
+::1 img4.png/
+::1 img2.png/
+::1 img1.png/
