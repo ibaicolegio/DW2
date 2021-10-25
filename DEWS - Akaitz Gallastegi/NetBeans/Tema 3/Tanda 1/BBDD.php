@@ -5,6 +5,7 @@
         if (mysqli_connect_errno()) {  
             echo "Imposible conectarse a la base de datos: " . mysqli_connect_error();  
         } else {
+            mysqli_set_charset  ($con, "UTF8");
             return $con;
         }
     }
@@ -16,6 +17,7 @@
         while($catrow = mysqli_fetch_assoc($catresult)) {
             array_push($items, $catrow['id']);
         }
+        if(mysqli_errno($con)) die(mysqli_error($con));
         return $items;
     }
 
@@ -23,6 +25,7 @@
         $catsql = "SELECT imagen FROM imagen where id_item=$idItem";
         $catresult = mysqli_query($con,$catsql);
         $catrow=mysqli_fetch_assoc($catresult);
+        if(mysqli_errno($con)) die(mysqli_error($con));
         return $catrow['imagen'];
     }
     
@@ -30,6 +33,7 @@
         $catsql = "SELECT nombre FROM item where id=$idItem;";
         $catresult = mysqli_query($con,$catsql);
         $catrow=mysqli_fetch_assoc($catresult);
+        if(mysqli_errno($con)) die(mysqli_error($con));
         return $catrow['nombre'];
     }
     
@@ -37,6 +41,7 @@
         $catsql = "SELECT COUNT(id) AS cant FROM puja where id_item=$idItem";
         $catresult = mysqli_query($con,$catsql);
         $catrow=mysqli_fetch_assoc($catresult);
+        if(mysqli_errno($con)) die(mysqli_error($con));
         return $catrow['cant'];
     }
     
@@ -44,6 +49,7 @@
         $catsql = "SELECT cantidad FROM puja where id_item=$idItem";
         $catresult = mysqli_query($con,$catsql);
         $catrow=mysqli_fetch_assoc($catresult);
+        if(mysqli_errno($con)) die(mysqli_error($con));
         return $catrow['cantidad'];
     }
     
@@ -51,6 +57,7 @@
         $catsql = "SELECT preciopartida FROM item where id=$idItem";
         $catresult = mysqli_query($con,$catsql);
         $catrow=mysqli_fetch_assoc($catresult);
+        if(mysqli_errno($con)) die(mysqli_error($con));
         return $catrow['preciopartida'];
     }
     
@@ -58,8 +65,31 @@
         $catsql = "SELECT fechafin FROM item where id=$idItem";
         $catresult = mysqli_query($con,$catsql);
         $catrow=mysqli_fetch_assoc($catresult);
+        if(mysqli_errno($con)) die(mysqli_error($con));
         return $catrow['fechafin'];
     }
     
+    function nombre($con,$nombre) {
+        $catsql = "SELECT count(username) as cont FROM usuario where username='$nombre';";
+        $catresult = mysqli_query($con,$catsql);
+        $catrow=mysqli_fetch_assoc($catresult);
+        if(mysqli_errno($con)) die(mysqli_error($con));
+        return $catrow['cont'];
+    }
+    
+    function crearUsuario($con, $username, $nombre, $password, $cadenaverificacion, $email=""){
+        $catsql = "INSERT INTO usuario(username, nombre, password, email, cadenaverificacion, activo, falso) values ('$username', '$nombre', '$password', '$email', '$cadenaverificacion', 1, 0)";
+        $catresult = mysqli_query($con,$catsql);
+        if(mysqli_errno($con)) die(mysqli_error($con));
+        return mysqli_insert_id($con);
+    }
+    
+    function iniciarSesion($con, $usuario, $contraseña) {
+        $catsql = "SELECT count(username) as cont FROM usuario where username='$usuario' and password='$contraseña';";
+        $catresult = mysqli_query($con,$catsql);
+        $catrow=mysqli_fetch_assoc($catresult);
+        if(mysqli_errno($con)) die(mysqli_error($con));
+        return $catrow['cont'];
+    }
 ?>
 

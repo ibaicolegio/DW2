@@ -22,7 +22,7 @@
                     } else {
                         echo "<td>SIN IMAGEN</td>";
                     }
-                    echo "<td>". nombreItem($con, $idItem)."</td>";
+                    echo "<td><a href=itemdetalles.php?item=$idItem>".nombreItem($con, $idItem)."</td>";
                     echo "<td>". cantPuja($con, $idItem)."</td>";
                     if(precioPuja($con, $idItem)!=null){
                         echo "<td>". precioPuja($con, $idItem)."€</td>";
