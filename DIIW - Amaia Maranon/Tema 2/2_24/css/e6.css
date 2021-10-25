@@ -1,0 +1,16 @@
+div{
+    border: 1px solid black;
+    width: 125px;
+    padding: 20px;
+    margin: 10px auto;
+    font-weight: bold;
+}
+.inclinado{
+    transform: skew(30deg);
+}
+.escalado{
+    transform: scale(0.9);
+}
+.girado{
+    transform: rotate(20deg);
+}

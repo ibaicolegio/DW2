@@ -1,8 +1,8 @@
 <html>
     <head>
-        <title><?php echo $config_forumsname; ?></title>
+        <title><?php include_once "BBDD.php"; include_once "config.php"; echo NOMBRE_FORO; $con=conexion();?></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="stylesheet.css" type="text/css" />
+        <link rel="stylesheet" href="css/stylesheet.css" type="text/css" />
     </head>
     <body>
         <div id="header">
@@ -21,6 +21,6 @@
         </div>
         <div id="container">
             <div id="bar">
-                <?php require("bar.php"); ?>
+                <?php require("barra.php"); ?>
             </div>
             <div id="main">
