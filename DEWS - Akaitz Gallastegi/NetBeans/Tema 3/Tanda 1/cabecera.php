@@ -1,6 +1,20 @@
+<?php 
+    include_once "BBDD.php";
+    include_once "config.php";
+
+    $con=conexion();
+    session_start();
+    if(isset($_SESSION['id'])){
+        if(isset($_GET['id'])){
+            $_SESSION['ultimaPag']=$_SERVER['PHP_SELF']."?id=".$_GET['id'];
+        } else {
+            $_SESSION['ultimaPag']=$_SERVER['PHP_SELF'];
+        }
+    }
+?>
 <html>
     <head>
-        <title><?php include_once "BBDD.php"; include_once "config.php"; echo NOMBRE_FORO; $con=conexion();?></title>
+        <title><?php echo NOMBRE_FORO;?></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/stylesheet.css" type="text/css" />
     </head>
@@ -11,7 +25,7 @@
         <div id="menu">
             <a href="index.php">Home</a>
             <?php
-            if (isset($_SESSION['USERNAME']) == TRUE) {
+            if (isset($_SESSION['id'])) {
                 echo "<a href='logout.php'>Logout</a>";
             } else {
                 echo "<a href='login.php'>Login</a>";

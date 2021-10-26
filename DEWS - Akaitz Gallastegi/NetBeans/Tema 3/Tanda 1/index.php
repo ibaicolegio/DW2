@@ -1,5 +1,11 @@
 <?php
     require_once 'cabecera.php';
+    if(isset($_GET['id'])){
+        $items= itemsCat($con, $_GET['id']);
+    } else {
+        $items= items($con);
+    }
+    if($items!=null){
 ?>
 <h2>Items disponibles</h2>
 <table border="1">
@@ -14,24 +20,28 @@
     </thead>
     <tbody>
         <?php 
-            $items= items($con);
+            } else {
+                echo "<h2>No hay items disponibles</h2>";
+            }
             foreach ($items as $idItem) {
                 echo "<tr>";
                     if(imagen($con,$idItem)!=null){
-                        echo "<td>".imagen($con,$idItem)."</td>";
+                        echo "<td><img src='".imagen($con,$idItem)."' alt='".nombreItem($con, $idItem)."' width='100' height='100'></td>";
                     } else {
                         echo "<td>SIN IMAGEN</td>";
                     }
                     echo "<td><a href=itemdetalles.php?item=$idItem>".nombreItem($con, $idItem)."</td>";
                     echo "<td>". cantPuja($con, $idItem)."</td>";
-                    if(precioPuja($con, $idItem)!=null){
-                        echo "<td>". precioPuja($con, $idItem)."€</td>";
+                    if(precioPujaMasAlta($con, $idItem)!=null){
+                        echo "<td>". precioPujaMasAlta($con, $idItem)."€</td>";
                     } else {
                         echo "<td>". precioPartida($con, $idItem)."€</td>";
                     }
                     echo "<td>". fechaPuja($con,$idItem)."</td>";
                 echo "</tr>";
             }
+            
+            
         ?>
     </tbody>
 </table>

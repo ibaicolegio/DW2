@@ -20,6 +20,17 @@
         if(mysqli_errno($con)) die(mysqli_error($con));
         return $items;
     }
+    
+    function itemsCat($con, $cat){
+        $catsql = "SELECT id FROM item WHERE id_cat=$cat";
+        $catresult = mysqli_query($con,$catsql);
+        $items=array();
+        while($catrow = mysqli_fetch_assoc($catresult)) {
+            array_push($items, $catrow['id']);
+        }
+        if(mysqli_errno($con)) die(mysqli_error($con));
+        return $items;
+    }
 
     function imagen($con,$idItem) {
         $catsql = "SELECT imagen FROM imagen where id_item=$idItem";
@@ -27,6 +38,17 @@
         $catrow=mysqli_fetch_assoc($catresult);
         if(mysqli_errno($con)) die(mysqli_error($con));
         return $catrow['imagen'];
+    }
+    
+    function imagenes($con,$idItem) {
+        $catsql = "SELECT imagen FROM imagen where id_item=$idItem";
+        $catresult = mysqli_query($con,$catsql);
+        $items=array();
+        while($catrow = mysqli_fetch_assoc($catresult)) {
+            array_push($items, $catrow['imagen']);
+        }
+        if(mysqli_errno($con)) die(mysqli_error($con));
+        return $items;
     }
     
     function nombreItem($con,$idItem) {
@@ -45,8 +67,8 @@
         return $catrow['cant'];
     }
     
-    function precioPuja($con,$idItem) {
-        $catsql = "SELECT cantidad FROM puja where id_item=$idItem";
+    function precioPujaMasAlta($con,$idItem) {
+        $catsql = "SELECT max(cantidad) as cantidad FROM puja where id_item=$idItem";
         $catresult = mysqli_query($con,$catsql);
         $catrow=mysqli_fetch_assoc($catresult);
         if(mysqli_errno($con)) die(mysqli_error($con));
@@ -85,11 +107,27 @@
     }
     
     function iniciarSesion($con, $usuario, $contraseña) {
-        $catsql = "SELECT count(username) as cont FROM usuario where username='$usuario' and password='$contraseña';";
+        $catsql = "SELECT id FROM usuario where username='$usuario' and password='$contraseña';";
         $catresult = mysqli_query($con,$catsql);
         $catrow=mysqli_fetch_assoc($catresult);
         if(mysqli_errno($con)) die(mysqli_error($con));
-        return $catrow['cont'];
+        return $catrow['id'];
+    }
+    
+    function usuarioPorId($con, $id) {
+        $catsql = "SELECT username FROM usuario where id='$id';";
+        $catresult = mysqli_query($con,$catsql);
+        $catrow=mysqli_fetch_assoc($catresult);
+        if(mysqli_errno($con)) die(mysqli_error($con));
+        return $catrow['username'];
+    }
+    
+    function descripcionItem($con,$idItem) {
+        $catsql = "SELECT descripcion FROM item where id=$idItem";
+        $catresult = mysqli_query($con,$catsql);
+        $catrow=mysqli_fetch_assoc($catresult);
+        if(mysqli_errno($con)) die(mysqli_error($con));
+        return $catrow['descripcion'];
     }
 ?>
 
