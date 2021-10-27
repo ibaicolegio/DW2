@@ -5,6 +5,11 @@
     } else {
         $items= items($con);
     }
+    if(isset($_GET['id'])){
+        $_SESSION['ultimaPag']=$_SERVER['PHP_SELF']."?id=".$_GET['id'];
+    } else {
+        $_SESSION['ultimaPag']=$_SERVER['PHP_SELF'];
+    }
     if($items!=null){
 ?>
 <h2>Items disponibles</h2>
@@ -33,9 +38,9 @@
                     echo "<td><a href=itemdetalles.php?item=$idItem>".nombreItem($con, $idItem)."</td>";
                     echo "<td>". cantPuja($con, $idItem)."</td>";
                     if(precioPujaMasAlta($con, $idItem)!=null){
-                        echo "<td>". precioPujaMasAlta($con, $idItem)."€</td>";
+                        echo "<td>". number_format(precioPujaMasAlta($con, $idItem),2,".","").MONEDA_LOCAL."</td>";
                     } else {
-                        echo "<td>". precioPartida($con, $idItem)."€</td>";
+                        echo "<td>". number_format(precioPartida($con, $idItem),2,".","").MONEDA_LOCAL."</td>";
                     }
                     echo "<td>". fechaPuja($con,$idItem)."</td>";
                 echo "</tr>";

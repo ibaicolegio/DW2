@@ -4,13 +4,6 @@
 
     $con=conexion();
     session_start();
-    if(isset($_SESSION['id'])){
-        if(isset($_GET['id'])){
-            $_SESSION['ultimaPag']=$_SERVER['PHP_SELF']."?id=".$_GET['id'];
-        } else {
-            $_SESSION['ultimaPag']=$_SERVER['PHP_SELF'];
-        }
-    }
 ?>
 <html>
     <head>

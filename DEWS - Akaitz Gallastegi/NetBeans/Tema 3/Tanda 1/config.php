@@ -5,5 +5,5 @@
     define("DB_DATABASE", "subastas"); 
     define("NOMBRE_FORO","SUBASTAS DEWS");
     define("RUTA_BASE","");
-    define("MONEDA_LOCAL","Euro");
+    define("MONEDA_LOCAL","$");
 ?>
