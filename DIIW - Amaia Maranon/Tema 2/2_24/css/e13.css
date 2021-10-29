@@ -2,44 +2,46 @@ body{
     background-color: gainsboro;
 }
 .principal{
-    margin: 0;
     border-radius: 10px;
     display: flex; 
-    flex-wrap: nowrap;
     overflow: hidden;
     width: 800px;
     margin: auto;
+    box-shadow: 1px 1px 10px black;    
 }
 div div{
-    width: 25%;
-    border-left: 20px solid white;
-    border-bottom: 0px;
+    width: 20%;
+    overflow: hidden;
+    transition: width 2s;
+   cursor: e-resize;
+}
+div div:hover{
+    width: 140%;
+    transition: width 2s;
 }
 .d1{
-    border-left: 0px;
-    transform: skewX(-20deg);
-    z-index: -2;
-}
-.d2{
-   transform: skewX(-20deg);
-   margin-bottom: 0; 
-   overflow: hidden;
+    margin-right: -60px;
+    width: 35%
 }
 
+.d2{
+    border-left: 20px solid white;
+    transform: skewX(-20deg);
+}
 .d3{
     border-left: 20px solid white;
-    border-right:20px solid white;
-    transform: skewX(-20deg);
-    overflow: hidden;
+    border-right: 20px solid white;
+    transform: skewX(-20deg);  
 }
 .d4{
-    
-  border-left: 0px;
-    transform: skewX(-20deg);
-    z-index: -1;
+    margin-left: -60px;
+    width: 35%;
 }
 img{
+   
+    height: 100%;
+}
+.i2, .i3{
     transform: skewX(20deg);
-    margin-left: -70px;
-    border-bottom: 0px;
+    margin-left: -60px;  
 }
