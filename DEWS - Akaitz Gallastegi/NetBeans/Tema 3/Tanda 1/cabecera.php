@@ -19,12 +19,14 @@
             <a href="index.php">Home</a>
             <?php
             if (isset($_SESSION['id'])) {
-                echo "<a href='logout.php'>Logout</a>";
+                echo "<a href='logout.php'>Logout</a> ";
+                echo "<a href='nuevoitem.php'>Nuevo Item</a>";
+                
             } else {
                 echo "<a href='login.php'>Login</a>";
             }
             ?>
-            <a href="newitem.php">New Item</a>
+            
         </div>
         <div id="container">
             <div id="bar">

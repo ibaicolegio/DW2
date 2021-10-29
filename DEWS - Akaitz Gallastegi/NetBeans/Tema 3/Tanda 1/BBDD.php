@@ -10,6 +10,18 @@
         }
     }
     
+    //Select
+    function categorias($con) {
+        $catsql = "SELECT id, categoria FROM categoria ORDER BY categoria ASC;";
+        $catresult = mysqli_query($con,$catsql);
+        $categorias=array();
+        while($catrow = mysqli_fetch_assoc($catresult)) {
+            $categorias[$catrow['id']]=$catrow['categoria'];
+        }
+        if(mysqli_errno($con)) die(mysqli_error($con));
+        return $categorias;
+    }
+    
     function items($con){
         $catsql = "SELECT id FROM item";
         $catresult = mysqli_query($con,$catsql);
@@ -99,13 +111,6 @@
         return $catrow['cont'];
     }
     
-    function crearUsuario($con, $username, $nombre, $password, $cadenaverificacion, $email=""){
-        $catsql = "INSERT INTO usuario(username, nombre, password, email, cadenaverificacion, activo, falso) values ('$username', '$nombre', '$password', '$email', '$cadenaverificacion', 1, 0)";
-        $catresult = mysqli_query($con,$catsql);
-        if(mysqli_errno($con)) die(mysqli_error($con));
-        return mysqli_insert_id($con);
-    }
-    
     function iniciarSesion($con, $usuario, $contraseña) {
         $catsql = "SELECT id FROM usuario where username='$usuario' and password='$contraseña';";
         $catresult = mysqli_query($con,$catsql);
@@ -173,6 +178,26 @@
         return $catrow['cantidad'];
     }
     
+    
+    
+    function pujasUsuarioDia($con, $id_item, $id_user){
+        $catsql = "SELECT count(id_item) as cantidad FROM puja where fecha=curdate() and id_item='$id_item' and id_user='$id_user'";
+        $catresult = mysqli_query($con,$catsql);
+        $catrow=mysqli_fetch_assoc($catresult);
+        if(mysqli_errno($con)) die(mysqli_error($con));
+        return $catrow['cantidad'];
+    }
+    
+    function itemUltimoId($con){
+        $catsql = "SELECT max(id) as id FROM item";
+        $catresult = mysqli_query($con,$catsql);
+        $catrow=mysqli_fetch_assoc($catresult);
+        if(mysqli_errno($con)) die(mysqli_error($con));
+        return $catrow['id'];
+    }
+    
+    //Insert
+    
     function pujar($con, $id_item, $id_user, $cantidad){
         if(pujasUsuarioDia($con, $id_item, $id_user)>=3){
             return "limite";
@@ -187,12 +212,18 @@
         }     
     }
     
-    function pujasUsuarioDia($con, $id_item, $id_user){
-        $catsql = "SELECT count(id_item) as cantidad FROM puja where fecha=curdate() and id_item='$id_item' and id_user='$id_user'";
+    function crearUsuario($con, $username, $nombre, $password, $cadenaverificacion, $email=""){
+        $catsql = "INSERT INTO usuario(username, nombre, password, email, cadenaverificacion, activo, falso) values ('$username', '$nombre', '$password', '$email', '$cadenaverificacion', 1, 0)";
         $catresult = mysqli_query($con,$catsql);
-        $catrow=mysqli_fetch_assoc($catresult);
         if(mysqli_errno($con)) die(mysqli_error($con));
-        return $catrow['cantidad'];
+        return mysqli_insert_id($con);
+    }
+    
+    function crearItem($con, $id_cat, $id_user, $nombre, $preciopartida, $descripcion, $fechafin){
+        $catsql = "INSERT INTO item(id_cat, id_user, nombre, preciopartida, descripcion, fechafin) values ($id_cat, $id_user, '$nombre', $preciopartida, '$descripcion', '$fechafin')";
+        $catresult = mysqli_query($con,$catsql);
+        if(mysqli_errno($con)) die(mysqli_error($con));
+        return mysqli_insert_id($con);
     }
 ?>
 

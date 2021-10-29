@@ -15,15 +15,15 @@
     }
     $err="";
     if($añadido=="cantidad"){
-        $err="Debes hacer una puja superior al precio actual";
+        $err="Puja muy baja!";
     } elseif ($añadido=="limite") {
-        $err="Has superado el mimite de 3 pujas diarias";
+        $err="Límite de 3 pujas por día";
     }
     $idItem = $_GET['item'];
     $imgs=imagenes($con,$idItem);
 ?>
 <h2><?php echo nombreItem($con, $idItem) ?></h2>
-<p style="color: red"><?php echo $err ?></p>
+
 <p>
     <b>Número de pujas:</b> <?php echo cantPuja($con,$idItem); ?> - 
     <b>Precio actual:</b> 
@@ -52,7 +52,7 @@
     <table border="1">
         <tr>
             <td><input type="text" name="cantidad" id="precioPuja"></td>
-            <td><input type="submit" name="enviar" value="¡Puja!"></td>
+            <td><p style="color: red"><input type="submit" name="enviar" value="¡Puja!"> <?php echo $err ?></p></td>
         </tr>
     </table>
 </form>
