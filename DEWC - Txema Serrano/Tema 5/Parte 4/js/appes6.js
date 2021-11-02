@@ -81,7 +81,7 @@ function cotizacion(nomMarca, anyo, tipoSeguro) {
     } else if(tipoSeguro=="completo"){
         porcTipo=50;
     }
-    console.log(difAnyos);
+    console.log(porcTipo);
     precio=2000+(2000*(porcProcedencia/100))+(2000*(porcTipo/100))-(2000*(porcAnyo/100));
     /*if (precio<2000) {
         precio=2000;

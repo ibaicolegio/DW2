@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/e2.js"></script>
+    <title>E2</title>
+</head>
+<body>
+    <button id="arrancar" onclick="arrancar()">Arrancar</button>
+    <button id="parar" style="visibility: hidden;" onclick="parar()">Parar</button>
+    <button id="acelerar" style="visibility: hidden;" onclick="acelerar()">Acelerar</button>
+    <button id="detener" style="visibility: hidden;" onclick="decelerar()">Decelerar</button>
+    <br>
+    <figure id="coche" style="position: absolute; left:0px;">
+        <img src="img/car.png" style="height: 100px;">
+        <figcaption id="velocidad">0.00km/h</figcaption>
+    </figure>
+    
+</body>
+</html>
