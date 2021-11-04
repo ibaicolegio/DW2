@@ -11,6 +11,21 @@
     }
     
     //Select
+    function todoItemId($con, $id) {
+        $catsql = "SELECT * FROM item where id='$id'";
+        $catresult = mysqli_query($con,$catsql);
+        $catrow = mysqli_fetch_assoc($catresult);
+        $items=array();
+        $items["id_cat"]=$catrow['id_cat'];
+        $items["id_user"]=$catrow['id_user'];
+        $items["nombre"]=$catrow['nombre'];
+        $items["preciopartida"]=$catrow['preciopartida'];
+        $items["descripcion"]=$catrow['descripcion'];
+        $items["fechafin"]=$catrow['fechafin'];
+        if(mysqli_errno($con)) die(mysqli_error($con));
+        return $items;
+    }
+    
     function categorias($con) {
         $catsql = "SELECT id, categoria FROM categoria ORDER BY categoria ASC;";
         $catresult = mysqli_query($con,$catsql);
@@ -53,14 +68,14 @@
     }
     
     function imagenes($con,$idItem) {
-        $catsql = "SELECT imagen FROM imagen where id_item=$idItem";
+        $catsql = "SELECT * FROM imagen where id_item=$idItem";
         $catresult = mysqli_query($con,$catsql);
-        $items=array();
+        $imagenes=array();
         while($catrow = mysqli_fetch_assoc($catresult)) {
-            array_push($items, $catrow['imagen']);
+            $imagenes[$catrow['id']]=$catrow['imagen'];
         }
         if(mysqli_errno($con)) die(mysqli_error($con));
-        return $items;
+        return $imagenes;
     }
     
     function nombreItem($con,$idItem) {
@@ -224,6 +239,22 @@
         $catresult = mysqli_query($con,$catsql);
         if(mysqli_errno($con)) die(mysqli_error($con));
         return mysqli_insert_id($con);
+    }
+    
+    //update
+    function posponer1Dia($con, $id){
+        $catsql = "UPDATE INTO item(id_cat, id_user, nombre, preciopartida, descripcion, fechafin) values ($id_cat, $id_user, '$nombre', $preciopartida, '$descripcion', '$fechafin')";
+        $catresult = mysqli_query($con,$catsql);
+        if(mysqli_errno($con)) die(mysqli_error($con));
+        return mysqli_affected_rows($con);
+    }
+    
+    //delete
+    function borrarImagen($con, $id){
+        $catsql = "DELETE FROM imagen WHERE id='$id'";
+        $catresult = mysqli_query($con,$catsql);
+        if(mysqli_errno($con)) die(mysqli_error($con));
+        return mysqli_affected_rows($con);
     }
 ?>
 

@@ -8,10 +8,16 @@
     }
     $añadido="";
     if(isset($_POST['enviar'])){
-        $id_item=$_GET['item'];
-        $id_user=$_SESSION['id'];
-        $cantidad=$_POST['cantidad'];
-        $añadido=pujar($con, $id_item, $id_user, $cantidad);
+        $idItem=$_GET['item'];
+        if($cantidad=$_POST['cantidad']<precioPartida($con, $idItem)){
+            $añadido="cantidad";
+        }else{
+            $id_item=$_GET['item'];
+            $id_user=$_SESSION['id'];
+            $cantidad=$_POST['cantidad'];
+            $añadido=pujar($con, $id_item, $id_user, $cantidad);
+        }
+        
     }
     $err="";
     if($añadido=="cantidad"){
