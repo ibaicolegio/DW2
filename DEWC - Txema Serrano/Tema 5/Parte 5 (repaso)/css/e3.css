@@ -1,0 +1,19 @@
+body{
+    text-decoration: underline;
+    cursor: pointer;
+}
+li{
+    color: blue;
+}
+figure{
+    background-color: grey;
+    position: absolute;
+    text-align: right;
+    border: 1px solid;
+    visibility: hidden;
+}
+figcaption{
+    color: white;
+    margin: 2px;
+    text-decoration: underline;
+}

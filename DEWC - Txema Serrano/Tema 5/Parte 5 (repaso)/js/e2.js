@@ -22,10 +22,15 @@ function movimiento() {
 function acelerar() {
     velocidad+=1;
     document.getElementById("velocidad").innerHTML=velocidad.toFixed(2)+"km/h";
+    proxVelo=velocidad;
 }
 
 function decelerar() {
+    detencion=0.1;
     proxVelo=velocidad-1;
+    if(proxVelo<0){
+        proxVelo=0;
+    }
     decelerars=setInterval('decelerarse()',100);
 }
 
@@ -33,23 +38,24 @@ function decelerarse() {
     if(velocidad>proxVelo){
         detencion+=0.33;
         velocidad-=detencion;
-        console.log(velocidad);
         document.getElementById("velocidad").innerHTML=velocidad.toFixed(2)+"km/h";
-    } if(velocidad<0) {
+    }
+    if(velocidad<=0) {
         velocidad=0;
-        clearInterval(decelerars);
         detencion=0;
-    } else if (velocidad<proxVelo) {
+        clearInterval(decelerars);
+    } else if (velocidad<=proxVelo) {
         velocidad=proxVelo;
         document.getElementById("velocidad").innerHTML=velocidad.toFixed(2)+"km/h";
-        clearInterval(decelerars);
         detencion=0;
+        clearInterval(decelerars);
     }
 }
 
 function parar() {
     detencion=0.1;
     deteners=setInterval('parars()',100);
+    proxVelo=0;
 }
 function parars(){
     if(velocidad>0){
