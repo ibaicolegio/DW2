@@ -2,13 +2,11 @@
     padding: 0;
     margin: 0;
 }
-body{
-    display: grid;
-}
 header{
     position: relative;
     background-color: rgba(199,199,199,0.8);
     padding: 10px;
+    z-index: 2;
 }
 header h1{
     text-align: center;
@@ -18,5 +16,9 @@ header div *{
 }
 header div input{
     right: 0;
-    top: %;
+    top: 33%;
+    width: 100px
+}
+.swiper img{
+    height: 100%;
 }
