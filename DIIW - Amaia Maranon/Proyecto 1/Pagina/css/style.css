@@ -2,23 +2,19 @@
     padding: 0;
     margin: 0;
 }
-header{
-    position: relative;
-    background-color: rgba(199,199,199,0.8);
-    padding: 10px;
-    z-index: 2;
+body{
+display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 57px 1fr 1fr;  
+  grid-template-areas: 
+    "swiper swiper swiper"
+    "cuerpo cuerpo cuerpo"
+    "menu menu menu"; 
 }
-header h1{
-    text-align: center;
+.swiper-slide img{
+    height: 100%
 }
-header div *{
-    position: absolute;
-}
-header div input{
-    right: 0;
-    top: 33%;
-    width: 100px
-}
-.swiper img{
-    height: 100%;
-}
+
+.swiper { grid-area: swiper; }
+.cuerpo { grid-area: cuerpo; }
+.menu { grid-area: menu; }

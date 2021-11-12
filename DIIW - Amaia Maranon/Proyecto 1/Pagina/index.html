@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cabecera.css">
+    <link rel="stylesheet" href="css/pie.css">
     <link rel="stylesheet" href="css/carrusel.css"/>
     <link rel="stylesheet" href="css/swiper-bundle.min.css"/>
     <script src=""></script>
@@ -12,10 +14,10 @@
 </head>
 <body>
     <!--Cabecera-->
-    <header>
+    <header class="cabecera">
         <div>
             <img src="img/logo.png" alt="logo" height="40">
-            <input type="search">
+            <input type="search" placeholder="Buscar">
         </div>
         <h1>IRM</h1>
     </header>
@@ -29,7 +31,29 @@
       </div>
     </div>
     
+    <!--Cuerpo-->
+    <div class="cuerpo">
+    
+    </div>
+    
+    <!--Menu-->
+    <div class="menu">
+    
+    </div>
+    
+    <!--Pie de pagina-->
+    <footer class="pie">
+        <div class="footer">
+            <div class="fd1"><a href=""><img src="img/menu.png"></a></div>
+            <div class="fd2"><a href=""><img src="img/telefono.png"></a></div>
+            <div class="fd3"><a href=""><img src="img/casa.png"></a></div>
+            <div class="fd4"><a href=""><img src="img/carro.png"></a></div>
+            <div class="fd5"><a href=""><img src="img/subir.png"></a></div>
+        </div>
+    </footer>
+    
+    <!--Scripts-->
     <script src="js/swiper-bundle.min.js"></script>
-    <script>var swiper = new Swiper(".mySwiper", {});</script>
+    <script src="js/swiper-auto.js"></script>
 </body>
 </html>
