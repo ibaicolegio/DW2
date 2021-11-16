@@ -11,7 +11,7 @@
             <?php 
                 foreach ($libros as $value) {
                     echo "<tr>";
-                        echo "<td>".form_checkbox("prestado", $value['idlibro'])."</td>";
+                        echo "<td>".form_checkbox("prestado[]", $value['idlibro'])."</td>";
                         echo "<td>".$value['titulo']."</td>";
                         echo "<td>".$value['nombre']."</td>";
                     echo "</tr>";

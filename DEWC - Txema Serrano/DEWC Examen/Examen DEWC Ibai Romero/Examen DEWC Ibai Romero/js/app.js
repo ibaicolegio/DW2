@@ -21,7 +21,7 @@ window.onload=function () {
 }
 
 function cargarIndex() {
-    document.getElementById("dni").addEventListener("blur",function () {comprobarDNI()});
+    document.getElementById("dni").addEventListener("blur",comprobarDNI);
     document.getElementById("firstname").addEventListener("blur",function () {comprobarCaracteresNombre()});
     document.getElementById("lastname").addEventListener("blur",function () {comprobarCaracteresApellidos()});
     document.getElementById("address").addEventListener("blur",function () {comprobarCaracteresDireccion()});

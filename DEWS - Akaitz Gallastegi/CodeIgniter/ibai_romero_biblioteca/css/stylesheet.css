@@ -50,18 +50,18 @@ body {
     background-color: #eee
 }
 
-a:link {
+.bar a:link {
     text-decoration: none;
     color: #000;
 }
 
-a:visited {
+.bar a:visited {
     text-decoration: none;
     border-bottom: 1px dotted #369;
     color: #000;
 }
 
-a:hover, a:active {
+.bar a:hover, a:active {
     text-decoration: none;
     border-bottom: 1px solid #036;
     color: #000;
@@ -145,4 +145,8 @@ input [type="submit"]
     color: #ffffff;
     border-radius: 30px;   
     border: 1px solid #999;	
+}
+
+.main a{
+    color:blue;
 }
