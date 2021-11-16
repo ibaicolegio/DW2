@@ -25,6 +25,10 @@ class BBDD extends CI_Model{
         return $rs->result();
   }
   
+  function prestar($idlibro){
+        $rs=$this->db->query("INSERT INTO prestamos (idlibro, fecha) VALUES ($idlibro, CURDATE())");
+  }
+  
   function tituloLibro($idLibro){
         $rs=$this->db->query("select titulo from libros where idlibro=$idLibro");
         return $rs->result();

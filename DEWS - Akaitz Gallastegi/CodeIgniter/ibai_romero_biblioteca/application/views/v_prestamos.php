@@ -16,6 +16,4 @@ if(isset($noPrestado) and $noPrestado!=null){
     echo "</ul>";  
     
 }
-
-echo $this->calendar->generate();
 ?>

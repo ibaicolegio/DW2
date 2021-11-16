@@ -17,6 +17,7 @@ class C_prestado extends CI_Controller {
                     foreach ($_POST['prestado'] as $value) {
                         $titulo=$this->BBDD->tituloLibro($value);
                         $titulo=$titulo[0]->titulo;
+                        $this->BBDD->prestar($value);
                         if(($this->BBDD->ejemplares_prestados($value))<4){
                             array_push($datos['prestado'],$titulo);
                         } else {
