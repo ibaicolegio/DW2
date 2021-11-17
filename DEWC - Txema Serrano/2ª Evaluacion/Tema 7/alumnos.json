@@ -1,0 +1,65 @@
+[
+    {
+        "nombre": "Andrés",
+        "clase": "DW1",
+        "nota": 6,
+        "domicilio": "Calle Doris Lessing",
+        "edad": 24
+    },
+    {
+        "nombre": "Ana",
+        "clase": "SI1",
+        "nota": 8,
+        "domicilio": "Calle Cruz Verde",
+        "edad": 42
+    },
+    {
+        "nombre": "Enzo",
+        "clase": "SI1",
+        "nota": 1,
+        "domicilio": "Calle Cola Y Goiti",
+        "edad": 24
+    },
+    {
+        "nombre": "Eric",
+        "clase": "SI1",
+        "nota": 4,
+        "domicilio": "Calle Castillo de Assa",
+        "edad": 64
+    },
+    {
+        "nombre": "Eva",
+        "clase": "DW2",
+        "nota": 7,
+        "domicilio": "Calle Belate",
+        "edad": 42
+    },
+    {
+        "nombre": "Hugo",
+        "clase": "DW1",
+        "nota": 0,
+        "domicilio": "Calle Antonio Miranda",
+        "edad": 49
+    },
+    {
+        "nombre": "Iván",
+        "clase": "DW2",
+        "nota": 8,
+        "domicilio": "Calle Amizkarra",
+        "edad": 36
+    },
+    {
+        "nombre": "Juan",
+        "clase": "SI2",
+        "nota": 3,
+        "domicilio": "Calle Alboka",
+        "edad": 27
+    },
+    {
+        "nombre": "Lara",
+        "clase": "SI1",
+        "nota": 2,
+        "domicilio": "Calle Alto de Armentia",
+        "edad": 18
+    }
+]
