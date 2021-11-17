@@ -6,7 +6,6 @@ class C_prestado extends CI_Controller {
         function __construct(){
             parent::__construct();            
             $this->load->model('BBDD');
-            $this->load->library('calendar');
 	}
     
 	public function prestado($genero)
@@ -17,8 +16,8 @@ class C_prestado extends CI_Controller {
                     foreach ($_POST['prestado'] as $value) {
                         $titulo=$this->BBDD->tituloLibro($value);
                         $titulo=$titulo[0]->titulo;
-                        $this->BBDD->prestar($value);
                         if(($this->BBDD->ejemplares_prestados($value))<4){
+                            $this->BBDD->prestar($value);
                             array_push($datos['prestado'],$titulo);
                         } else {
                             array_push($datos['noPrestado'],$titulo);
@@ -31,9 +30,6 @@ class C_prestado extends CI_Controller {
                 $this->load->view('cabecera',$datos);
 		$this->load->view('index');
                 $this->load->view('v_prestamos',$datos);
-                
-
-
                 $this->load->view('pie');
 	}
        

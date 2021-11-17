@@ -43,6 +43,16 @@ class BBDD extends CI_Model{
         $this->db->query("DELETE FROM prestamos WHERE idprestamo=$idprestamo");
   }
   
+  function diasPrestamos(){
+        $rs=$this->db->query("select DISTINCT DAYOFMONTH(fecha) dia FROM prestamos WHERE MONTH(fecha) = MONTH(CURRENT_DATE())");
+        return $rs->result();
+  }
+  
+  function prestamosDia($dia){
+        $rs=$this->db->query("select DISTINCT titulo FROM prestamos p, libros l WHERE MONTH(fecha) = MONTH(CURRENT_DATE()) and DAYOFMONTH(fecha) = $dia and l.idlibro=p.idlibro");
+        return $rs->result();
+  }
+  
 }
 ?>
 

@@ -50,18 +50,18 @@ body {
     background-color: #eee
 }
 
-.bar a:link {
+a:link {
     text-decoration: none;
     color: #000;
 }
 
-.bar a:visited {
+a:visited {
     text-decoration: none;
     border-bottom: 1px dotted #369;
     color: #000;
 }
 
-.bar a:hover, a:active {
+a:hover, a:active {
     text-decoration: none;
     border-bottom: 1px solid #036;
     color: #000;
@@ -136,7 +136,7 @@ td {
     padding: 10px;
 }
 
-input [type="submit"]
+input[type="submit"]
 {
     padding: 6px 12px 5px;
     font-size: 14px;
@@ -145,8 +145,4 @@ input [type="submit"]
     color: #ffffff;
     border-radius: 30px;   
     border: 1px solid #999;	
-}
-
-.main a{
-    color:blue;
 }

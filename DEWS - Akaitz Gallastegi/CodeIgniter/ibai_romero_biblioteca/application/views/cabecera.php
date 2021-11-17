@@ -22,6 +22,7 @@
                                 $genero=$value->genero;
                                 echo "<li><a href=".site_url()."/C_genero/genero/$genero>".$genero."</a></li>";
                         }
+                        echo "<li><a href=".site_url()."/C_calendario/calendario>Calendario</a></li>";
                         echo "<li><a href=".site_url()."/C_librosPrestados/libros>Libros prestados</a></li>";
                     ?>
                 </ul>
