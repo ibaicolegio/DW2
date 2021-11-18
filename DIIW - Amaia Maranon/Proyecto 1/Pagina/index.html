@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/pie.css">
     <link rel="stylesheet" href="css/carrusel.css"/>
     <link rel="stylesheet" href="css/swiper-bundle.min.css"/>
-    <script src=""></script>
+    <script src="js/js.js"></script>
     <title>IRM</title>
 </head>
 <body>
@@ -31,27 +31,104 @@
       </div>
     </div>
     
+    <!--Menu navegacion(Medianas y grandes)-->
+    <nav class="nav-menu">
+        <div>
+            <a href="">
+                <p class="seleccionado-texto">Inicio</p>
+            </a>
+        </div>
+        <div>
+            <a href="">
+                <p>Productos</p>
+            </a>
+        </div>
+        <div>
+            <a href="">
+                <p>Contactar</p>
+            </a>
+        </div>
+    </nav>
+    
+     <!--Titulo-->
+    <div class="titulo">
+        <h1>Fundadores</h1>
+    </div>
+    
     <!--Cuerpo-->
     <div class="cuerpo">
-    
+        <div class="caja" id="Larry-Ellison">
+            <img src="img/Larry_Ellison.png" alt="Larry Ellison">
+            <div class="texto">
+                <p class="nombre">Larry Ellison</p><br>
+                <p class="descripcion">Lawrence Joseph Ellison (El Bronx, Nueva York; 17 de agosto de 1944), más conocido como Larry Ellison.</p>
+                <p class="mas">Alice Louise Walton (nacida en Arkansas, Estados Unidos, el 1 de diciembre de 1948) es la mujer más adinerada del mundo en 2020.</p>
+            </div>
+        </div>
+        <div class="caja" id="Alice-Walton">
+            <img src="img/Alice_Walton.jpg" alt="Alice Walton">
+            <div class="texto">
+                <p class="nombre">Alice Walton</p><br>
+                <p class="descripcion">Alice Louise Walton (nacida en Arkansas, Estados Unidos, el 1 de diciembre de 1948) es la mujer más adinerada del mundo en 2020.</p>
+                <p class="mas">Alice Louise Walton (nacida en Arkansas, Estados Unidos, el 1 de diciembre de 1948) es la mujer más adinerada del mundo en 2020.</p>
+            </div>
+        </div>
+        <div class="caja" id="Juan-Roig-Alfonso">
+            <img src="img/juan%20roig%20alfonso.jpg" alt="Juan Roig Alfonso">
+            <div class="texto">
+                <p class="nombre">Juan Roig Alfonso</p><br>
+                <p class="descripcion">Alice Louise Walton (nacida en Arkansas, Estados Unidos, el 1 de diciembre de 1948) es la mujer más adinerada del mundo en 2020.</p>
+                <p class="mas">Alice Louise Walton (nacida en Arkansas, Estados Unidos, el 1 de diciembre de 1948) es la mujer más adinerada del mundo en 2020.</p>
+            </div>
+        </div>
+        <div class="caja" id="Manuel-Lao-Hernandez">
+            <img src="img/Manuel-Lao-800x445.jpg" alt="Manuel Lao Hernandez">
+            <div class="texto">
+                <p class="nombre">Manuel Lao Hernandez</p><br>
+                <p class="descripcion">Manuel Lao Hernández (Doña María, Almería, 10 de junio de 1944) es un empresario español dedicado a las inversiones en diferentes sectores como el financiero.</p>
+                <p class="mas">Alice Louise Walton (nacida en Arkansas, Estados Unidos, el 1 de diciembre de 1948) es la mujer más adinerada del mundo en 2020.</p>
+            </div>
+        </div>
     </div>
     
     <!--Menu-->
     <div class="menu">
-    
+        <a href="#Larry-Ellison">
+            <img src="img/Larry_Ellison.png" alt="Larry Ellison">
+        </a>
+        <a href="#Alice-Walton">
+            <img src="img/Alice_Walton.jpg" alt="Alice Walton">
+        </a>
+        <a href="#Juan-Roig-Alfonso">
+            <img src="img/juan%20roig%20alfonso.jpg" alt="Juan Roig Alfonso">
+        </a>
+        <a href="#Manuel-Lao-Hernandez">
+            <img src="img/Manuel-Lao-800x445.jpg" alt="Manuel Lao Hernandez">
+        </a>
     </div>
     
+    <!--Pie contacto-->
+    <div class="pie-contacto" id="contacto">
+        <div class="footer">
+            <div><a href=""><img src="img/twitter.png"></a></div>
+            <div><a href=""><img src="img/telegram.png"></a></div>
+            <div><a href=""><img src="img/whatsapp.png"></a></div>
+            <div><a href=""><img src="img/simbolo-de-la-aplicacion-de-facebook.png"></a></div>
+            <div><a href=""><img src="img/instagram.png"></a></div>
+        </div>
+    </div>
+        
     <!--Pie de pagina-->
     <footer class="pie">
         <div class="footer">
-            <div class="fd1"><a href=""><img src="img/menu.png"></a></div>
-            <div class="fd2"><a href=""><img src="img/telefono.png"></a></div>
-            <div class="fd3"><a href=""><img src="img/casa.png"></a></div>
-            <div class="fd4"><a href=""><img src="img/carro.png"></a></div>
-            <div class="fd5"><a href=""><img src="img/subir.png"></a></div>
+            <div onclick="encender()"><img src="img/menu.png"></div>
+            <div><a href=""><img src="img/telefono.png"></a></div>
+            <div><a href=""><img src="img/casa.png"  class="seleccionado"></a></div>
+            <div><a href=""><img src="img/carro.png"></a></div>
+            <div><a href=""><img src="img/subir.png"></a></div>
         </div>
     </footer>
-    
+    <div class="subir"><a href=""><img src="img/subir.png"></a></div>
     <!--Scripts-->
     <script src="js/swiper-bundle.min.js"></script>
     <script src="js/swiper-auto.js"></script>

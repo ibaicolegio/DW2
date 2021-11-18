@@ -15,3 +15,42 @@ footer{
     width: 30px;
     bottom: 0px;
 }
+/*Menu contacto*/
+.pie-contacto{
+    display: none;
+    position: fixed;
+    bottom: 58px;
+    width: 100%;
+    z-index: 2;
+    background-color: rgba(199,199,199,0.8);
+}
+.subir{
+    display: none;
+}
+@media (min-width: 960px){
+    footer{
+        display: none;
+    }
+    .pie-contacto{
+        grid-area: pie-contacto;
+        display: block;
+        position: static;
+        bottom: 0;
+        width: 100%;
+        z-index: 2;
+        background-color: rgba(199,199,199,0.8);
+    }
+    .subir{
+        display: block;
+        position: fixed;
+        bottom: 1px;
+        right: 0;
+        width: 100px;
+        text-align: center;
+        
+    }
+    .subir img{
+        margin: auto;
+        width: 50px;
+    }
+}

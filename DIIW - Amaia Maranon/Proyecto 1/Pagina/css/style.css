@@ -5,16 +5,129 @@
 body{
 display: grid; 
   grid-template-columns: 1fr 1fr 1fr; 
-  grid-template-rows: 57px 1fr 1fr;  
+  grid-template-rows: 57px 37px 1fr 
+      178px;  
   grid-template-areas: 
     "swiper swiper swiper"
+    "titulo titulo titulo"
     "cuerpo cuerpo cuerpo"
     "menu menu menu"; 
 }
 .swiper-slide img{
     height: 100%
 }
-
 .swiper { grid-area: swiper; }
-.cuerpo { grid-area: cuerpo; }
-.menu { grid-area: menu; }
+.nav-menu{
+    display: none;
+    grid-area: nav-menu;
+}
+.titulo{
+    grid-area: titulo;
+    text-align: center;
+    background-color: slategrey;
+}
+.cuerpo { 
+    grid-area: cuerpo; 
+    background-color: darkgrey;
+}
+.menu { 
+    grid-area: menu; 
+    display: flex;
+    justify-content: space-evenly;
+    background-color: lightgrey;
+}
+/*Cajas cuerpo*/
+.caja{
+    width: 80%;
+    margin: 15px auto;
+    background-color: grey;
+    display: flex;
+    border-radius: 30px;
+}
+.caja img{
+    width: 20%;
+    border-radius: 30px;
+}
+.texto{
+    padding: 10px;
+    text-align: justify;
+}
+.mas{
+    display: none;
+}
+/*Caja menu*/
+.menu img{
+    width: 100px;
+    height: 120px;
+    border-radius: 30px;
+}
+/*Pagina actual*/
+.seleccionado{
+    border-bottom: solid black;
+}
+@media (min-width: 550px) and (max-width: 960px) {
+    body{
+        grid-template-rows: 57px 20px 37px 1fr 178px;  
+        grid-template-areas: 
+        "swiper swiper swiper"
+        "nav-menu nav-menu nav-menu"
+        "titulo titulo titulo"
+        "cuerpo cuerpo cuerpo"
+        "menu menu menu"; 
+    }
+    .nav-menu{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: lightgrey;
+    }
+    .nav-menu div{
+        width: 100%;
+        margin: auto;
+        text-align: center;
+        border: solid 1px;
+    }
+    .nav-menu div a{
+        color: black;
+        text-decoration: none;
+    }
+    .seleccionado-texto{
+        text-decoration: underline;
+    }
+}
+@media (min-width: 960px){
+    body{
+        grid-template-columns: 1fr 1fr 100px; 
+        grid-template-rows: 57px 20px 37px 1fr 61px;  
+        grid-template-areas: 
+        "swiper swiper swiper"
+        "nav-menu nav-menu nav-menu"
+        "titulo titulo titulo"
+        "cuerpo cuerpo menu"
+        "pie-contacto pie-contacto subir"; 
+    }
+    .nav-menu{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: lightgrey;
+    }
+    .nav-menu div{
+        width: 100%;
+        margin: auto;
+        text-align: center;
+        border: solid 1px;
+    }
+    .nav-menu div a{
+        color: black;
+        text-decoration: none;
+    }
+    .seleccionado-texto{
+        text-decoration: underline;
+    }
+    .menu{
+        align-items: center;
+        flex-direction: column;
+        justify-content: normal;
+    }
+}
