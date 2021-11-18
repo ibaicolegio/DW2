@@ -97,7 +97,7 @@ display: grid;
 }
 @media (min-width: 960px){
     body{
-        grid-template-columns: 1fr 1fr 100px; 
+        grid-template-columns: 1fr 1fr 110px; 
         grid-template-rows: 57px 20px 37px 1fr 61px;  
         grid-template-areas: 
         "swiper swiper swiper"
@@ -129,5 +129,10 @@ display: grid;
         align-items: center;
         flex-direction: column;
         justify-content: normal;
+        background-color: dimgrey;
+        border: darkgrey solid;
+    }
+    .mas{
+        display: block;
     }
 }
