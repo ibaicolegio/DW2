@@ -3,23 +3,54 @@
     margin: 0;
 }
 body{
+    background-color: dimgrey;
 display: grid; 
   grid-template-columns: 1fr 1fr 1fr; 
-  grid-template-rows: 57px 37px 1fr 
-      178px;  
+  grid-template-rows: 64px 37px 1fr 
+      120px 61px;  
   grid-template-areas: 
     "swiper swiper swiper"
     "titulo titulo titulo"
     "cuerpo cuerpo cuerpo"
-    "menu menu menu"; 
+    "menu menu menu"
+    "a b c"; 
+    font-family: Helvetica;
 }
+/*Cabecera*/
+header{
+    position: absolute;
+    width: 100%;
+    background-color: rgba(199,199,199,0.8);
+    padding: 10px;
+    z-index: 2;
+}
+header h1{
+    text-align: center;
+    font-family: 'Alegreya', serif;
+}
+header div *{
+    position: absolute;
+}
+header div input{
+    right: 30px;
+    top: 33%;
+    width: 100px;
+    border-radius: 5px;
+}
+/*Swiper*/
 .swiper-slide img{
     height: 100%
 }
+/*Grid areas*/
 .swiper { grid-area: swiper; }
 .nav-menu{
     display: none;
     grid-area: nav-menu;
+}
+.nav-menu div:hover{
+    color: white;
+    background-color:  darkgray;
+    
 }
 .titulo{
     grid-area: titulo;
@@ -36,6 +67,39 @@ display: grid;
     justify-content: space-evenly;
     background-color: lightgrey;
 }
+/*Pie de pagina*/
+footer{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 2;
+    background-color: rgba(199,199,199,0.8);
+}
+.footer{
+    display: flex;
+    justify-content: space-between;
+    border: black 2px solid;
+    padding: 10px;
+}
+.footer a:hover{
+    border-bottom: solid black;
+}
+.footer *{
+    width: 30px;
+    bottom: 0px;
+}
+/*Menu contacto*/
+.pie-contacto{
+    display: none;
+    position: fixed;
+    bottom: 58px;
+    width: 100%;
+    z-index: 2;
+    background-color: rgba(199,199,199,0.8);
+}
+.subir{
+    display: none;
+}
 /*Cajas cuerpo*/
 .caja{
     width: 80%;
@@ -43,10 +107,26 @@ display: grid;
     background-color: grey;
     display: flex;
     border-radius: 30px;
+    animation-name: cajas;
+    animation-duration: 2s;
+    transition: width 1s;
+}
+.caja:hover{
+    width: 90%
+}
+@keyframes cajas {
+    from {opacity: 0%;}
+    to {opacity: 100%;}
 }
 .caja img{
     width: 20%;
     border-radius: 30px;
+    animation-name: cajasImgs;
+    animation-duration: 2s;
+}
+@keyframes cajasImgs {
+    from {width: 0%;}
+    to {width: 20%;}
 }
 .texto{
     padding: 10px;
@@ -60,6 +140,10 @@ display: grid;
     width: 100px;
     height: 120px;
     border-radius: 30px;
+    transition: grayscale 1s;
+}
+.menu img:hover{
+    filter: grayscale(100);
 }
 /*Pagina actual*/
 .seleccionado{
@@ -67,13 +151,14 @@ display: grid;
 }
 @media (min-width: 550px) and (max-width: 960px) {
     body{
-        grid-template-rows: 57px 20px 37px 1fr 178px;  
+        grid-template-rows: 64px 20px 37px 1fr 120px 61px;  
         grid-template-areas: 
         "swiper swiper swiper"
         "nav-menu nav-menu nav-menu"
         "titulo titulo titulo"
         "cuerpo cuerpo cuerpo"
-        "menu menu menu"; 
+        "menu menu menu"
+            "a b c"; 
     }
     .nav-menu{
         display: flex;
@@ -98,7 +183,7 @@ display: grid;
 @media (min-width: 960px){
     body{
         grid-template-columns: 1fr 1fr 110px; 
-        grid-template-rows: 57px 20px 37px 1fr 61px;  
+        grid-template-rows: 64px 20px 37px 1fr 61px;  
         grid-template-areas: 
         "swiper swiper swiper"
         "nav-menu nav-menu nav-menu"
@@ -134,5 +219,31 @@ display: grid;
     }
     .mas{
         display: block;
+    }
+    /*Pie de pagina*/
+    footer{
+        display: none;
+    }
+    .pie-contacto{
+        grid-area: pie-contacto;
+        display: block;
+        position: static;
+        bottom: 0;
+        width: 100%;
+        z-index: 2;
+        background-color: rgba(199,199,199,0.8);
+    }
+    .subir{
+        display: block;
+        position: fixed;
+        bottom: 1px;
+        right: 0;
+        width: 100px;
+        text-align: center;
+        
+    }
+    .subir img{
+        margin: auto;
+        width: 50px;
     }
 }

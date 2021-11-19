@@ -16,16 +16,14 @@
     padding: 2px;
     border: solid 1px;
 }
+
 form *{
     border-radius: 5px;
-}
-label{
-    
 }
 @media (min-width: 960px){
     body{
         grid-template-columns: 1fr 1fr 110px; 
-        grid-template-rows: 57px 20px 37px 1fr 61px;  
+        grid-template-rows: 64px 20px 37px 800px 61px;
         grid-template-areas: 
         "swiper swiper swiper"
         "nav-menu nav-menu nav-menu"
@@ -34,5 +32,5 @@ label{
         "pie-contacto pie-contacto subir"; 
     }
     .cuerpo{
-        height: 500px;
+        height: 800px;
     }
