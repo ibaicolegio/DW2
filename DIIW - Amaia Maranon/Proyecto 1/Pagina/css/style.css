@@ -107,12 +107,18 @@ footer{
     background-color: grey;
     display: flex;
     border-radius: 30px;
-    animation-name: cajas;
-    animation-duration: 2s;
+    -webkit-animation-name: cajas;
+            animation-name: cajas;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
     transition: width 1s;
 }
 .caja:hover{
     width: 90%
+}
+@-webkit-keyframes cajas {
+    from {opacity: 0%;}
+    to {opacity: 100%;}
 }
 @keyframes cajas {
     from {opacity: 0%;}
@@ -121,8 +127,14 @@ footer{
 .caja img{
     width: 20%;
     border-radius: 30px;
-    animation-name: cajasImgs;
-    animation-duration: 2s;
+    -webkit-animation-name: cajasImgs;
+            animation-name: cajasImgs;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+}
+@-webkit-keyframes cajasImgs {
+    from {width: 0%;}
+    to {width: 20%;}
 }
 @keyframes cajasImgs {
     from {width: 0%;}
@@ -143,7 +155,8 @@ footer{
     transition: grayscale 1s;
 }
 .menu img:hover{
-    filter: grayscale(100);
+    -webkit-filter: grayscale(100);
+            filter: grayscale(100);
 }
 .swiper-slide .slider-abajo{
     position: static;
