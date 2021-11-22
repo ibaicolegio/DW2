@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 4</title>
+        <link rel="stylesheet" href="css/ejercicio4.css">
+    </head>
+    <body>
+        <h1>FICHA DE INSCRIPCIÓN</h1>
+        <form>
+            <fieldset>
+                <legend>Datos de suscripción</legend>
+                <label for="codigo">Código de suscripción:</label>
+                    <input type="text" id="codigo" value="INS-00123" size="10" readonly>
+                
+                <label for="nSocio">Nº Socio:</label>
+                    <input type="text" id="nSocio" value="123" size="10" disabled>
+                
+                <label for="usuario">Usuario:</label>
+                    <input type="text" id="usuario" maxlength="10" required>
+                
+                <label for="contraseña">Contraseña:</label>
+                    <input type="password" id="contraseña" maxlength="10" required>
+                
+                <label for="rContraseña">Repite Contraseña:</label>
+                    <input type="password" id="rContraseña" maxlength="10" required>
+                
+                <label for="nombreCompleto">Nombre Completo:</label>
+                    <input type="text" id="nombreCompleto" maxlength="30" size="30" autofocus>
+                
+                <label for="dni">DNI:</label>
+                    <input type="text" id="dni" size="10" maxlength="8" pattern="[0-9]{8}" title="Debe tener 8 numeros">
+                
+                <label for="letra">Letra:</label>
+                    <input type="text" id="letra" size="2" maxlength="1" pattern="[A-Za-z]{1}" title="Debe ser una letra">
+                
+                <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" size="30" maxlength="30">
+                
+                <label for="ciudad">Ciudad:</label>
+                    <input type="text" id="ciudad" size="15" maxlength="15">
+                
+                <label for="cp">Código Postal:</label>
+                    <input type="text" id="cp" size="5" maxlength="5" pattern="[0-9]{5}" title="Debe tener 5 numeros">
+                
+                <label for="pais">País:</label>
+                    <input type="text" id="pais" value="Francia" size="7" disabled>
+            </fieldset>
+            <fieldset>
+                <legend>Datos Bancarios</legend>
+                <input type="radio" id="visa" value="visa" name="banco">
+                     <label for="visa">Visa</label>
+                <input type="radio" id="masterCard" value="masterCard" name="banco" checked>
+                     <label for="masterCard">Master Card</label>
+                <input type="radio" id="americanExpress" value="americanExpress" name="banco">
+                     <label for="americanExpress">American Express</label>
+            </fieldset>
+            <fieldset>
+                <legend>Aficiones</legend>
+                <input type="checkbox" id="leer" value="leer" name="leer" checked>
+                     <label for="leer">Leer</label>
+                <input type="checkbox" id="viajar" value="viajar" name="viajar" checked>
+                     <label for="viajar">Viajar</label>
+                <input type="checkbox" id="escucharMusica" value="escucharMusica" name="escucharMusica" checked>
+                     <label for="escucharMusica">Escuchar música</label>
+                <input type="checkbox" id="deportes" value="deportes" name="deportes">
+                     <label for="deportes">Deportes</label>
+                <input type="checkbox" id="montaña" value="montaña" name="montaña">
+                     <label for="montaña">Montaña</label>
+                <input type="checkbox" id="juegosDeEstrategia" value="juegosDeEstrategia" name="juegosDeEstrategia" checked>
+                     <label for="juegosDeEstrategia">Juegos de Estrategia</label>
+                <details>
+                    <summary>Más opciones</summary>
+                    <input type="checkbox" id="informatica" value="informatica" name="informatica">
+                        <label for="informatica">Informatica</label>
+                    <input type="checkbox" id="jogging" value="jogging" name="jogging">
+                        <label for="jogging">Jogging</label>
+                    <input type="checkbox" id="cine" value="cine" name="cine">
+                        <label for="cine">Cine</label>
+                </details>
+            </fieldset>
+            <fieldset>
+                <legend>Enviar información</legend>
+                <details>
+                    <summary>Más opciones</summary>
+                    <label for="resguardo">Adjuntar resguardo de pago (PDF):</label>
+                        <input type="file" id="resguardo" value="resguardo" name="resguardo">
+                </details>
+                <input type="submit" value="Enviar">
+                    <input type="reset" value="Limpiar">
+            </fieldset>
+        </form>
+    </body>
+</html>

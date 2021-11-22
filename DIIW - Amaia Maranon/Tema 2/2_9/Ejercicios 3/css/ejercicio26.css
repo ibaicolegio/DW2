@@ -1,6 +1,0 @@
-.cuadro1{
-    width:400px;
-    height: 300px;
-    background: url(../imagenes/logo1.png) top left no-repeat,  url(../imagenes/logo1.png) center no-repeat, url(../imagenes/madera1.png) bottom right  no-repeat;
-    background-size: 15%, 50%, 100%;
-}

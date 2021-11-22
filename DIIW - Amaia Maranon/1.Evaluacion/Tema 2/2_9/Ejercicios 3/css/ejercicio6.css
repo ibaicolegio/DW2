@@ -1,0 +1,22 @@
+.recuadro1{
+    color: rgba(255, 0, 0, 33%);
+}
+.recuadro2{
+    color: rgba(255, 0, 0, 66%);
+}
+.recuadro3{
+    color: rgb(255, 0, 0);
+}
+.recuadro4{
+    color: rgb(255, 0, 0);
+    background-color: rgba(102,204,204,255);
+    border-radius: 10px;
+}
+.recuadro5{
+    color: rgba(255, 0, 0, 25%);
+    background-color: rgba(102,204,204,25%);
+}
+*{
+    padding-left: 3px;
+    margin-left: 3px;
+}

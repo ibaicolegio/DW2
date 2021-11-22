@@ -1,0 +1,28 @@
+body{
+    color:grey;
+    text-align: center;
+}
+main{
+    display: table;
+    table-layout: fixed;
+    margin: auto;
+    width: 520px;
+}
+main > div:first-of-type{
+    display: table-row;
+}
+main > div > div{
+    display: table-cell;
+    border: 1px solid;
+    vertical-align: middle;
+}
+main > div:last-of-type{
+    display: table-caption;
+    caption-side: bottom;
+}
+img{
+    width: 400px;
+}
+main > div > div:first-of-type{
+    width: 100px;
+}

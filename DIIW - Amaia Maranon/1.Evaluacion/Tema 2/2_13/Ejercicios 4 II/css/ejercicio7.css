@@ -1,0 +1,76 @@
+body{
+    background-image: 
+        url(../img/grid-is-hard.jpg),
+        url(../img/master-it.jpg),
+        url(../img/grid-game.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat, repeat-y;
+    background-position: center top;
+    color: white;
+    font-size: 1.2em;
+    font-family: arial;
+}
+.intro{
+    display: grid;
+    grid-template-columns: 50% 1fr;
+    grid-template-areas: "a c" "d b";
+}
+.header{
+    position: absolute;
+    top:0px;
+    right: 180px;
+    text-align: right;
+    color: black;
+    font-size: 0.9em;
+}
+.grid-is-hard.section.container{
+    padding-left: 50px;
+    grid-area: a;
+}
+.grid-is-hard.section.container h1{
+    color: aqua;
+    padding-bottom: 20px;
+}
+.p-before-code{
+    padding-right: 150px;
+    padding-bottom: 50px;
+}
+.callout{
+    color:aqua;
+    padding-bottom: 50px;
+}
+.token.selector{
+    color: mediumpurple
+}
+.code-multiline.language-css{
+    color:aqua;
+}
+.token.property{
+    color: white;
+}
+.grid-is-hard.section.container h2{
+    padding-right: 100px;
+    padding-bottom: 20px;
+}
+.grid-is-hard.section.container p:nth-of-type(2){
+    padding-right: 50px;
+    padding-bottom: 40px;
+}
+.language-css{
+    padding-bottom: 50px;
+}
+.grid-is-hard.section.container p:last-of-type{
+    padding-bottom: 100px;
+    padding-right: 50px;
+}
+.master-it.section.container{
+    grid-area: b;
+    padding-left: 100px;
+}
+.master-it.section.container h1{
+    color: aqua;
+    padding-bottom: 40px;
+}
+.master-it.section.container p{
+    padding-bottom: 50px;
+}

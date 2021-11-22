@@ -1,0 +1,15 @@
+body{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
+    grid-gap: 10px;
+    
+}
+div{
+    background-color: purple;
+    color: white;
+    height: 100px;
+    font-weight: bolder;
+    font-size: 30px;
+    padding-top: 10px;
+    padding-left: 10px;
+}

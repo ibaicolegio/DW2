@@ -1,0 +1,16 @@
+h1 span{
+    color: blue;
+}
+span{
+    color: green;
+}
+em{
+    color: green;
+    text-decoration: underline;
+}
+em span{
+    color: yellow;
+}
+strong span{
+    color: red;
+}

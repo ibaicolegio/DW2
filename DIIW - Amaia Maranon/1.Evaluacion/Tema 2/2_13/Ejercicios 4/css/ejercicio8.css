@@ -1,0 +1,30 @@
+.block{
+    background-color: darkgrey;
+    padding-top: 10px;
+}
+.block .c1{
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    margin: auto;
+    background-color: lawngreen;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+.inline{
+    background-color: darkgrey;
+}
+.inline .c1{
+    display: inline;
+    background-color: skyblue;
+}
+.inline-block{
+    background-color: darkgrey;
+    padding: 20px;
+    text-align:center;
+}
+.inline-block .c1{
+    display: inline-block;
+    background-color: pink;
+    padding: 20px;
+}

@@ -1,0 +1,42 @@
+img{
+    width: 200px;
+    box-shadow: 10px 10px 5px grey;
+}
+div{
+    position: absolute;
+    transition: transform 1s;
+}
+div:hover{ 
+    transform: scale(2);
+    z-index: 7;   
+} 
+.i1{
+    top: 100px;
+    left: 200px;
+    z-index:3; 
+}
+.i2{
+    top: 130px;
+    left: 350px;
+    z-index: 2;
+}
+.i3{
+    top: 260px;
+    left: 280px;
+    z-index: 1;
+}
+.i4{
+    top: 360px;
+    left: 400px;
+    z-index: 6;
+}
+.i5{
+    top: 300px;
+    left: 500px;
+    z-index: 4;
+}
+.i6{
+    top: 400px;
+    left: 240px;
+    z-index: 5;
+}

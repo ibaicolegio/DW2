@@ -1,0 +1,33 @@
+body{
+    display: grid;
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: repeat(2, 50px);
+    grid-template-areas: "d1 d2 d3 d4"
+        "d5 d6 xx xx";
+    text-align: center;
+    grid-gap: 40px;
+}
+body *{
+    border: 5px solid;
+    background-color: grey;
+}
+#d1{
+    grid-area: d1;
+}
+#d2{
+    grid-area: d2;
+}
+#d3{
+    grid-area: d3;
+}
+#d4{
+    grid-area: d4;
+}
+#d5{
+    grid-area: d5;
+}
+#d6{
+    grid-area: d6;
+    background-color: blue;
+    margin: 20px -20px -20px 20px;
+}

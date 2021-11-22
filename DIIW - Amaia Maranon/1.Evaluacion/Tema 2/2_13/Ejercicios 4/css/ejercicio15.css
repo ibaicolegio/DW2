@@ -1,0 +1,61 @@
+header{
+    display: flex;
+    background-color: black;
+    justify-content: flex-end;
+    padding-top: 50px;
+}
+h1{
+    text-align: center;
+    margin: 0;
+}
+div{
+    display: flex;
+}
+article img{
+    order: 1; 
+    width: 300px
+}
+article h2, p{
+    order: 2;
+}
+button{
+    order: 3;
+}
+article{
+    flex:1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: flex-start;
+    text-align: justify; 
+    position: relative;
+    padding: 10px;
+}
+button{
+    padding: 5px 15px;
+}
+article:nth-of-type(1) button{
+    margin-top: 10px;
+}
+article:nth-of-type(n+2) button{
+    position: absolute;
+    bottom: 10px;
+}
+article *{
+    margin: 0;
+}
+article:first-of-type{
+    background-color: lightblue;
+   
+}
+article:nth-of-type(2){
+    background-color: darkseagreen;
+ 
+}
+article:last-of-type{
+    background-color: cadetblue;
+    
+}
+h2{
+    text-align: center;
+}

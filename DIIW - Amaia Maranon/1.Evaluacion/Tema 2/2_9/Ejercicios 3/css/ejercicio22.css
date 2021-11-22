@@ -1,0 +1,13 @@
+div{
+    margin: 40px auto;
+}
+.recuadro1{
+    height: 250px;
+    width: 200px;
+    padding: 0px 10px;
+    background-color: gainsboro;
+    border: 2px solid gainsboro;
+    border-radius: 20px;
+    justify-content: left;
+    box-shadow: 30px 30px 5px limegreen, -30px -30px 5px red;
+}
