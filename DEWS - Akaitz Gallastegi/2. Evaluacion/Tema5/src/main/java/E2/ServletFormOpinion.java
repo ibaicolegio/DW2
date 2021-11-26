@@ -5,10 +5,13 @@
  */
 package E2;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Iterator;
 import java.util.Scanner;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,22 +38,39 @@ public class ServletFormOpinion extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String error="";
+        String error="", link="";
         if(request.getParameter("enviar")!=null){
-            if(request.getParameter("nombre")==""){
+            if(request.getParameter("nombre").equalsIgnoreCase("")){
                 error+="Nombre no agregado<br>";
             }
-            if(request.getParameter("apellidos")==""){
+            if(request.getParameter("apellidos").equalsIgnoreCase("")){
                 error+="Apellidos no agregados<br>";
             }
             if(request.getParameter("opinion")==null){
                 error+="Opinion no agregada<br>";
             }
-            if(request.getParameter("comentario")==""){
+            if(request.getParameter("comentario").equalsIgnoreCase("")){
                 error+="Comentario no agregado<br>";
             }
             if(request.getParameter("secciones")==null){
                 error+="Secciones no agregadas<br>";
+            }
+            if(error.equals("") && request.getParameter("opinion").equalsIgnoreCase("B")){
+                try {
+                    link+="E2/seccionesfavoritas.txt";
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(getServletContext().getRealPath("E2/seccionesfavoritas.txt"),true));
+                    String nombre=request.getParameter("nombre");
+                    String[] secciones=request.getParameterValues("secciones");
+                    bw.write(nombre+":");
+                    for (String seccione : secciones) {
+                        bw.write(seccione+",");
+                    }
+                    
+                    bw.newLine();
+                    bw.close();
+                } catch (IOException ioe){
+                    ioe.printStackTrace();
+                }
             }
         }
         try (PrintWriter out = response.getWriter()) {
@@ -61,7 +81,8 @@ public class ServletFormOpinion extends HttpServlet {
             out.println("<title>Servlet ServletFormOpinion</title>");            
             out.println("</head>");
             out.println("<body>");
-                out.println("<p style='color: red'>"+error+"</p");
+                out.println("<p style='color: red'>"+error+"</p>");
+                out.println("<a href='"+link+"'>"+link+"</a>");
                 out.println("<form action='' method='POST'>");
                     out.println("Nombre: <input type='text' name='nombre'><br><br>");
                     out.println("Apellidos: <input type='text' name='apellidos'><br><br>");
@@ -77,7 +98,7 @@ public class ServletFormOpinion extends HttpServlet {
                         Scanner myReader = new Scanner(myObj);
                         while (myReader.hasNextLine()) {
                             String data = myReader.nextLine();
-                            out.println("<input type='checkbox' name='secciones'>"+data+"<br>");
+                            out.println("<input type='checkbox' name='secciones' value='"+data+"'>"+data+"<br>");
                           }
                         myReader.close();
                     }   catch (FileNotFoundException e) {

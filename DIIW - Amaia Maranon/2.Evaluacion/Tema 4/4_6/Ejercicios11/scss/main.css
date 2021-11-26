@@ -49,7 +49,7 @@ header div {
 }
 
 header div img {
-  width: 90%;
+  width: 400px;
   margin-bottom: -4px;
 }
 
@@ -57,8 +57,23 @@ main {
   background-color: #999999;
 }
 
+@media (min-width: 950px) {
+  main {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 3fr 1fr;
+        grid-template-columns: 3fr 1fr;
+        grid-template-areas: "articulo menu";
+  }
+}
+
 main section {
+  grid-area: articulo;
   margin: 10px 20px;
+}
+
+main section article {
+  margin: 30px 0px;
 }
 
 main section article h2 {
@@ -73,6 +88,8 @@ main section article h2 {
 
 main section article div.date {
   text-align: right;
+  font-style: italic;
+  margin: 10px 0 10px;
 }
 
 main section article img {
@@ -83,12 +100,98 @@ main section article img {
 }
 
 main section article p {
+  margin-top: 20px;
   text-align: justify;
 }
 
 main section form {
   border: 1px solid;
   padding: 10px;
-  white-space: pre-line;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media (min-width: 950px) {
+  main section form {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 4fr;
+        grid-template-columns: 1fr 4fr;
+    width: 100%;
+  }
+}
+
+main section form * {
+  margin: 3px;
+}
+
+main section form input {
+  width: 90%;
+  border-radius: 10px 0px;
+}
+
+@media (min-width: 950px) {
+  main section form input {
+    width: 100%;
+  }
+}
+
+main section form textarea {
+  width: 90%;
+  border-radius: 10px 0px;
+  height: 100px;
+}
+
+@media (min-width: 950px) {
+  main section form textarea {
+    width: 100%;
+  }
+}
+
+main section form input[type=submit] {
+  width: 70px;
+  margin: auto;
+  background-color: black;
+  color: white;
+}
+
+@media (min-width: 950px) {
+  main section form input[type=submit] {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 3;
+    margin: auto;
+  }
+}
+
+main aside {
+  margin: 40px 20px;
+  grid-area: menu;
+}
+
+main aside h2 {
+  text-align: center;
+  padding: 7px;
+  background-color: #525252;
+  color: white;
+  font-style: italic;
+  font-weight: normal;
+  border-radius: 30px 0px;
+}
+
+main aside p {
+  margin-bottom: 20px;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px 0px 20px 0px;
 }
 /*# sourceMappingURL=main.css.map */
