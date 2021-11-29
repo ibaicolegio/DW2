@@ -1,4 +1,5 @@
 import * as UI from './interfaz.js';
+import API from './api.js';
 
 console.log(UI);
 
@@ -20,5 +21,9 @@ function buscarCancion(e) {
         }, 3000);
     } else {
         console.log('Consultando la API');
+        const busqueda = new API(artista, cancion);
+
+        busqueda.consultarAPI();
+        console.log(busqueda);
     }
 }

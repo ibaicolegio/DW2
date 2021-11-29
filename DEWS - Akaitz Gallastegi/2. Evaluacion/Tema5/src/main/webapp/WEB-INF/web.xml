@@ -4,9 +4,25 @@
         <servlet-name>IntroCeldas</servlet-name>
         <servlet-class>e3.IntroCeldas</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GuardaMatriz</servlet-name>
+        <servlet-class>e3.GuardaMatriz</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VisorMatrices</servlet-name>
+        <servlet-class>e3.VisorMatrices</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>IntroCeldas</servlet-name>
         <url-pattern>/IntroCeldas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GuardaMatriz</servlet-name>
+        <url-pattern>/GuardaMatriz</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VisorMatrices</servlet-name>
+        <url-pattern>/VisorMatrices</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
