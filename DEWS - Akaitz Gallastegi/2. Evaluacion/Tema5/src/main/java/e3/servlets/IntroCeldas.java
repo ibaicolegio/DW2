@@ -1,4 +1,4 @@
-package e3;
+package e3.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;

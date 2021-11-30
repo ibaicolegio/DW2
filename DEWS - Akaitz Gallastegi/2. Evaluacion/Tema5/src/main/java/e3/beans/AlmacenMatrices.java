@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package e3;
+package e3.beans;
 
 import java.util.ArrayList;
 
