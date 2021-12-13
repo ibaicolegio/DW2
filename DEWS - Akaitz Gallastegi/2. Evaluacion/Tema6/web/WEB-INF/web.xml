@@ -8,6 +8,10 @@
         <servlet-name>ServletJuego</servlet-name>
         <servlet-class>e1.servlets.ServletJuego</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletComprobar</servlet-name>
+        <servlet-class>e1.servlets.ServletComprobar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>E0</servlet-name>
         <url-pattern>/E0</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>ServletJuego</servlet-name>
         <url-pattern>/ServletJuego</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletComprobar</servlet-name>
+        <url-pattern>/ServletComprobar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
