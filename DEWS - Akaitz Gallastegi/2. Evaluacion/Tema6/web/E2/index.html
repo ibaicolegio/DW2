@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>TEST</h1>
+        <form action="../servlets/ProcesoPregunta" method="POST">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre"><br><br>
+            
+            <label for="nPreguntas">¿Cuántas preguntas?</label>
+            <input type="number" name="nPreguntas" id="nPreguntas"><br><br>
+                
+            <label for="pista">Mostrar pistas:</label>
+            <input type="checkbox" name="pista" id="pista"><br><br>
+            
+            <input type="submit" name="enviar" value="COMENZAR">
+        </form>
+    </body>
+</html>
