@@ -27,15 +27,19 @@ public class ProcesoPregunta extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session=request.getSession(true);
-            
+        
+        if(session.getAttribute("tiempo")==null){
+            session.setAttribute("tiempo", System.currentTimeMillis());
+        }
+        
         if(request.getParameter("siguiente")!=null && session.getAttribute("numeroPregunta")!=null){
             int numeroPregunta=(int)(session.getAttribute("numeroPregunta"))+1;
             ArrayList<Integer> respuestas=(ArrayList<Integer>)session.getAttribute("respuestas");
             Test test=(Test)session.getAttribute("test");
-            for (int i = 0; i < test.getPreguntas().size(); i++) {
-                if(request.getParameter(""+i)!=null){
-                    respuestas.add(i);
-                }
+            respuestas.add(Integer.parseInt(request.getParameter("respuesta")));
+            if(respuestas.size()!=numeroPregunta){
+                numeroPregunta--;
+                session.setAttribute("error","Seleccione una respueta");
             }
             session.setAttribute("respuestas", respuestas);
             session.setAttribute("numeroPregunta", numeroPregunta);
@@ -43,7 +47,13 @@ public class ProcesoPregunta extends HttpServlet {
 
         if(request.getParameter("enviar")!=null){
             String nombre=request.getParameter("nombre");
-            int nPreguntas=Integer.parseInt(request.getParameter("nPreguntas"));
+            int nPreguntas=0;
+            if(Integer.parseInt(request.getParameter("nPreguntas")) > Test.getPreguntasVarias().length){
+                nPreguntas=Test.getPreguntasVarias().length;
+            } else {
+                nPreguntas=Integer.parseInt(request.getParameter("nPreguntas"));
+            }
+            
             boolean pista=false;
             if(request.getParameter("pista")!=null){
                 pista=true;
@@ -66,9 +76,15 @@ public class ProcesoPregunta extends HttpServlet {
         String enunciado=pregunta.getEnunciado();
         String[] respuestas=pregunta.getRespuestas();
         String pista=null;
-        if(session.getAttribute("pista")!=null){
+        if(session.getAttribute("pista")==Boolean.TRUE){
             pista=pregunta.getPista();
         }
+        
+        String error=null;
+        if(session.getAttribute("error")!=null){
+            error=(String)session.getAttribute("error");
+        }
+        session.setAttribute("error","");
         
         try (PrintWriter out = response.getWriter()) {
             out.println("<!DOCTYPE html>");
@@ -77,6 +93,9 @@ public class ProcesoPregunta extends HttpServlet {
             out.println("<title>Servlet ProcesoPregunta</title>");            
             out.println("</head>");
             out.println("<body>");
+            if(error!=null){
+                out.println("<p style='color: red'>"+error+"</p>");
+            }
             out.println("<h3>"+enunciado+"</h3>");
             if(numeroPregunta==(int)session.getAttribute("nPreguntas")-1){
                 out.println("<form method='POST' action='"+request.getContextPath()+"/servlets/Resultado'>");
@@ -84,7 +103,7 @@ public class ProcesoPregunta extends HttpServlet {
                 out.println("<form method='POST' action='"+request.getContextPath()+"/servlets/ProcesoPregunta'>");
             }
             for (int i = 0; i < respuestas.length; i++) {
-                out.println("<input type='radio' name='"+i+"'>"+respuestas[i]+"<br>");
+                out.println("<input type='radio' name='respuesta' id='"+i+"' value='"+i+"'><label for='"+i+"'>"+respuestas[i]+"</label><br>");
             }
             if(numeroPregunta==(int)session.getAttribute("nPreguntas")-1){
                 out.println("<input type='submit' value='FIN' name='siguiente'>");

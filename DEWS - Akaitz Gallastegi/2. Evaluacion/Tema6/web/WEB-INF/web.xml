@@ -16,6 +16,10 @@
         <servlet-name>ProcesoPregunta</servlet-name>
         <servlet-class>e2.servlets.ProcesoPregunta</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Resultado</servlet-name>
+        <servlet-class>e2.servlets.Resultado</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>E0</servlet-name>
         <url-pattern>/E0</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>ProcesoPregunta</servlet-name>
         <url-pattern>/servlets/ProcesoPregunta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Resultado</servlet-name>
+        <url-pattern>/servlets/Resultado</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

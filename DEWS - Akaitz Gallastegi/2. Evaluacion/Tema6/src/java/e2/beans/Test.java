@@ -69,6 +69,10 @@ public class Test {
     public ArrayList<Pregunta> getPreguntas() {
         return preguntas;
     }
+
+    public static Pregunta[] getPreguntasVarias() {
+        return preguntasVarias;
+    }
     
     
 }
