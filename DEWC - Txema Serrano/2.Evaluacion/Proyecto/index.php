@@ -13,6 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/custom.css">
+    <script src="js/script.js"></script>
 </head>
 
 <body>
@@ -34,7 +35,7 @@
                     </div>
                 </div>
             </div>
-
+            <p id="aqui"></p>
             <div class='col-12'>
                 <div id="wg-api-football-standings" data-host="v3.football.api-sports.io" data-league="140" data-team="" data-season="2021" data-key="e332e51a7d76ff7aa8307fbc2fd5b413" data-theme="" data-show-errors="false" class="api_football_loader"></div>
             </div>
@@ -43,7 +44,6 @@
 
     <script type="module" src="https://widgets.api-sports.io/football/1.1.8/widget.js">
     </script>
-    <script src="js/script.js"></script>
 </body>
 
 </html>

@@ -11,10 +11,11 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>Tema 6</h1>
-        <a href="E0">E0</a><br>
-        <a href="ServletJuego">E1</a><br>
-        <a href="E2">E2</a><br>
-        <a href="E3">E3</a>
+        <h1>INICIA TU APUESTA</h1>
+        <form action="../EscribeApuesta" method="POST">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre">
+            <input type="submit" name="enviar" value="ESCRIBIR APUESTA">
+        </form>
     </body>
 </html>

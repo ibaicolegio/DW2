@@ -36,7 +36,9 @@ public class ProcesoPregunta extends HttpServlet {
             int numeroPregunta=(int)(session.getAttribute("numeroPregunta"))+1;
             ArrayList<Integer> respuestas=(ArrayList<Integer>)session.getAttribute("respuestas");
             Test test=(Test)session.getAttribute("test");
-            respuestas.add(Integer.parseInt(request.getParameter("respuesta")));
+            if(request.getParameter("respuesta")!=null){
+                respuestas.add(Integer.parseInt(request.getParameter("respuesta")));
+            }
             if(respuestas.size()!=numeroPregunta){
                 numeroPregunta--;
                 session.setAttribute("error","Seleccione una respueta");
@@ -81,7 +83,7 @@ public class ProcesoPregunta extends HttpServlet {
         }
         
         String error=null;
-        if(session.getAttribute("error")!=null){
+        if(session.getAttribute("error")!=null || request.getParameter("respuesta")==null){
             error=(String)session.getAttribute("error");
         }
         session.setAttribute("error","");

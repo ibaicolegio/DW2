@@ -20,6 +20,14 @@
         <servlet-name>Resultado</servlet-name>
         <servlet-class>e2.servlets.Resultado</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EscribeApuesta</servlet-name>
+        <servlet-class>e3.servlets.EscribeApuesta</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProcesaApuesta</servlet-name>
+        <servlet-class>e3.servlets.ProcesaApuesta</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>E0</servlet-name>
         <url-pattern>/E0</url-pattern>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>Resultado</servlet-name>
         <url-pattern>/servlets/Resultado</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EscribeApuesta</servlet-name>
+        <url-pattern>/EscribeApuesta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcesaApuesta</servlet-name>
+        <url-pattern>/ProcesaApuesta</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

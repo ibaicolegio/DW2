@@ -20,18 +20,15 @@ public class Resultado extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session=request.getSession(true);
-        int numeroPregunta=(int)(session.getAttribute("numeroPregunta"))+1;
-        ArrayList<Integer> respuestas=(ArrayList<Integer>)session.getAttribute("respuestas");
-        Test test=(Test)session.getAttribute("test");
-        respuestas.add(Integer.parseInt(request.getParameter("respuesta")));
-        if(respuestas.size()!=numeroPregunta){
-            numeroPregunta--;
-            session.setAttribute("error","Seleccione una respueta");
-        }
-        if(session.getAttribute("error")!=""){
+        
+        if(request.getParameter("respuesta")==null){
             response.sendRedirect(request.getContextPath() + "/servlets/ProcesoPregunta");
+            session.setAttribute("error","Seleccione una respueta");
         } else {
-
+            int numeroPregunta=(int)(session.getAttribute("numeroPregunta"))+1;
+            ArrayList<Integer> respuestas=(ArrayList<Integer>)session.getAttribute("respuestas");
+            Test test=(Test)session.getAttribute("test");
+            respuestas.add(Integer.parseInt(request.getParameter("respuesta")));
             long tiempo=System.currentTimeMillis()-(long)session.getAttribute("tiempo");
             long segundos=TimeUnit.MILLISECONDS.toSeconds(tiempo);
             long minutos=0;
