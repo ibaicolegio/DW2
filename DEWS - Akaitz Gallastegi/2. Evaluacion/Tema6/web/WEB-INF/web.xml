@@ -23,6 +23,10 @@
     <servlet>
         <servlet-name>EscribeApuesta</servlet-name>
         <servlet-class>e3.servlets.EscribeApuesta</servlet-class>
+        <init-param>
+            <param-name>fichero</param-name>
+            <param-value>equipos.txt</param-value>
+        </init-param>
     </servlet>
     <servlet>
         <servlet-name>ProcesaApuesta</servlet-name>

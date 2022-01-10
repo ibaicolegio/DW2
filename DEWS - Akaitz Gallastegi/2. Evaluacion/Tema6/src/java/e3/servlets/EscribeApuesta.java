@@ -18,7 +18,7 @@ public class EscribeApuesta extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config); //To change body of generated methods, choose Tools | Templates.
-        String fichero="equipos.txt";
+        String fichero=this.getInitParameter("fichero");
         try {
             String ruta=this.getServletContext().getRealPath("E3/"+fichero);
             File myObj = new File(ruta);
@@ -72,18 +72,45 @@ public class EscribeApuesta extends HttpServlet {
             out.println("<form action='ProcesaApuesta' method='POST'>");
             out.println("<table>");
             if(partidos!=null){
+                int cont=0;
                 for (String partido : partidos) {
                     String[] equipos=partido.split(":");
                     out.println("<tr>");
                     out.println("<td>"+equipos[0]+"</td>");
                     out.println("<td>"+equipos[1]+"</td>");
-                    out.println("<td><select name='"+partido+"'>"
+                    if(session.getAttribute("partido"+cont)!=null){
+                        out.println("<td><select name='"+cont+"'>");
+                        out.println("<option value=''></option>");
+                        if(session.getAttribute("partido"+cont).equals("1")){
+                            out.println("<option value='1' selected>1</option>");
+                        } else {
+                            out.println("<option value='1'>1</option>");
+                        }
+                        if(session.getAttribute("partido"+cont).equals("X")){
+                            out.println("<option value='X' selected>X</option>");
+                        } else {
+                            out.println("<option value='X'>X</option>");
+                        }
+                        if(session.getAttribute("partido"+cont).equals("2")){
+                            out.println("<option value='2' selected>2</option>");
+                        } else {
+                            out.println("<option value='2'>2</option>");
+                        }
+                        out.println("</select></td>");
+                        if(session.getAttribute("partido"+cont).equals("")){
+                            out.println("<td style='color:red'>Debes rellenar este campo</td>");
+                        }
+                        out.println("</td>");
+                    } else {
+                        out.println("<td><select name='"+cont+"'>"
                             + "<option value=''></option>"
                             + "<option value='1'>1</option>"
                             + "<option value='X'>X</option>"
                             + "<option value='2'>2</option>"
                             + "</td>");
+                    }
                     out.println("</tr>");
+                    cont++;
                 }
             }
             out.println("</table>");
