@@ -23,11 +23,18 @@ public class Imagen {
     }
     
     public String tamanioDesglosado(){
-        double Mb = tamanyo/1024/1024;
-        double Kb = (tamanyo-Mb)/1024;
-        double bytes = tamanyo-Kb-Mb;
-        String tamanio = Mb+" Mb "+Kb+" Kb "+bytes+" bytes ";
-        return tamanio;
+        String msg="";
+        double bytes = tamanyo%1024;
+        msg=bytes+" bytes ";
+        if(tamanyo>1024){
+            double Kb = tamanyo/1024%1024;
+            msg=Kb+" Kb "+msg;
+        }
+        if(tamanyo>(1024*1024)){
+            double Mb = tamanyo/1024/1024%1024;
+            msg=Mb+" Mb "+msg;
+        }
+        return msg;
     }
     
     
