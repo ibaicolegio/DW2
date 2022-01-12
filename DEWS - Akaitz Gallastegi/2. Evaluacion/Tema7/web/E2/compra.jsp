@@ -6,7 +6,6 @@
 
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,19 +19,53 @@
                     <th>PRODUCTO</th>
                     <th>PEDIR</th>
                 </tr>
-                <c:forEach items="${productos}" var="producto" varStatus="index">
+                <% 
+                    ArrayList<String> productos=(ArrayList<String>)session.getAttribute("productos");
+                    ArrayList<Integer> compras;
+                    boolean alguno=false;
+                    if(session.getAttribute("compras")==null){
+                        compras=new ArrayList();
+                        int index=0;
+                        for (Object producto : productos) {
+                            compras.add(index, 0);
+                            index++;
+                        }
+                        
+                    } else {
+                        compras=(ArrayList<Integer>)session.getAttribute("compras");
+                    }
+                    int cont=0;
+                    for (Object producto : productos) {
+                %>
                     <tr>
-                        <td>${producto}</td>
-                        <td><input type="submit" name="${index.getCount()}" value="Adquirir unidad"></td>
+                        <td><%=producto%></td>
+                        <td><input type="submit" name="<%=cont%>" value="Adquirir unidad"></td>
                         <%
-                            ArrayList compras=new ArrayList();
+                            if(request.getParameter(cont+"")!=null){
+                                if(compras.get(cont)!=null){
+                                    compras.set(cont, compras.get(cont)+1);
+                                } else {
+                                    compras.set(cont, 1);
+                                }
+                            }
                             session.setAttribute("compras", compras);
-                            
-                            
+                            if(compras.get(cont)>0){
+                                alguno=true;
                         %>
-                    </tr>
-                </c:forEach>
+                        <td><%=compras.get(cont)%> unidades</td>
+                        <%
+                            }
+                            cont++;
+                        }
+                        %>
+                </tr>
             </form>
         </table>
+                <%
+                    
+                    if(alguno){
+                %>
+                <jsp:include page="/E2/muestracarro.jsp"/>
+                <%}%>
     </body>
 </html>
