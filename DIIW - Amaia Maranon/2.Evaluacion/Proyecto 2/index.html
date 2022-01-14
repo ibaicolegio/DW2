@@ -40,18 +40,18 @@
     </div>
     
     <!--Menu navegacion(Medianas y grandes)-->
-    <nav class="nav-menu">
-        <div>
+    <nav class="nav-menu" aria-label="menu principal" role="menu">
+        <div role="menuitem">
             <a href="">
                 <p class="seleccionado-texto">Inicio</p>
             </a>
         </div>
-        <div>
+        <div role="menuitem">
             <a href="pages/productos.html">
                 <p>Productos</p>
             </a>
         </div>
-        <div>
+        <div role="menuitem">
             <a href="pages/contactar.html">
                 <p>Contactar</p>
             </a>
@@ -59,12 +59,12 @@
     </nav>
     
      <!--Titulo-->
-    <div class="titulo">
+    <div class="titulo" id="titulo">
         <h1>Quienes somos?</h1>
     </div>
     
     <!--Cuerpo-->
-    <div class="cuerpo">
+    <div class="cuerpo" role="article">
         <div class="caja" id="Larry-Ellison">
             <img src="img/Larry_Ellison.png" alt="Larry Ellison">
             <div class="texto">
@@ -100,30 +100,34 @@
     </div>
     
     <!--Menu-->
-    <div class="menu">
-        <a href="#Larry-Ellison">
+    <div class="menu" role="menu">
+        <a href="#Larry-Ellison" role="menuitem">
             <img src="img/Larry_Ellison.png" alt="Larry Ellison">
         </a>
-        <a href="#Alice-Walton">
+        <a href="#Alice-Walton" role="menuitem">
             <img src="img/Alice_Walton.jpg" alt="Alice Walton">
         </a>
-        <a href="#Juan-Roig-Alfonso">
+        <a href="#Juan-Roig-Alfonso" role="menuitem">
             <img src="img/juan%20roig%20alfonso.jpg" alt="Juan Roig Alfonso">
         </a>
-        <a href="#Manuel-Lao-Hernandez">
+        <a href="#Manuel-Lao-Hernandez" role="menuitem">
             <img src="img/Manuel-Lao-800x445.jpg" alt="Manuel Lao Hernandez">
         </a>
     </div>
     <!--Aviso legal-->
-    <div class="aviso-legal" id="aviso">
+    <div class="aviso-legal" id="aviso" role="aviso legal">
         <p>A continuación le informamos del uso que hacemos de los datos que recabamos mientras navega por nuestras páginas. Puede cambiar sus preferencias, en cualquier momento, accediendo al enlace al Area de Privacidad que encontrará al pie de nuestra página principal.
         Con su acuerdo, nosotros y nuestros socios usamos cookies o tecnologías similares para almacenar, acceder y procesar datos personales como su visita en este sitio web. Puede retirar su consentimiento u oponerse al procesamiento de datos basado en intereses legítimos en cualquier momento haciendo clic en "Más información" o en nuestra Política de privacidad en este sitio web.
         Nosotros y nuestros socios hacemos el siguiente tratamiento de datos:
         Almacenar o acceder a información en un dispositivo, Anuncios y contenido personalizados, medición de anuncios y del contenido, información sobre el público y desarrollo de productos, Datos de localización geográfica precisa e identificación mediante las características de dispositivos, Finalidades propias de La Vanguardia, Uso de cookies técnicas o de preferencias</p>
         <br>
-        <button class="aceptar" onclick="aceptar()">Aceptar</button>
+        <button class="aceptar" onclick="aceptar()" aria-label="aceptar aviso legal" aria-labelledby="aviso" aria-describedby="aviso">Aceptar</button>
     </div>
     
+    <!--Cambiar color y letra-->
+    <div>
+        <button class="color" onclick="color()" aria-label="cambiar color y fondo">Color y fondo</button>
+    </div>
     
     <!--Pie contacto-->
     <div class="pie-contacto" id="contacto">

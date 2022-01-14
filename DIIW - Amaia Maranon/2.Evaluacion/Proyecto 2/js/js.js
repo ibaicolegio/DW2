@@ -16,3 +16,15 @@ function aceptar(){
     localStorage.setItem('aviso',"hola");
     document.getElementById("aviso").style.display="none";
 }
+
+function color(){
+    let caja=document.getElementsByClassName("caja");
+    document.getElementById("titulo").style.backgroundColor="white";
+    document.getElementById("titulo").style.color="black";
+    for (const iterator of caja) {
+        iterator.style.color="black";
+        iterator.style.backgroundColor="white";
+    }
+
+    
+}

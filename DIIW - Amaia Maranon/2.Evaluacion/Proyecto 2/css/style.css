@@ -180,6 +180,11 @@ footer{
 .aceptar{
     float: right;
 }
+.color{
+    position: absolute;
+    top: 95px;
+    right: 20px;
+}
 #buscarLabel{
     visibility: hidden;
 }
