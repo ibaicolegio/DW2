@@ -1,3 +1,5 @@
 titular vacio
 saldo negativo
 titular prohibido
+saldo vacio
+cantidad negativo

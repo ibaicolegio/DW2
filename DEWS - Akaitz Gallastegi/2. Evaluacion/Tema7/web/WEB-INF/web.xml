@@ -12,6 +12,10 @@
         <servlet-name>ServletNuevaCuenta</servlet-name>
         <servlet-class>e3.servlets.ServletNuevaCuenta</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletIlegales</servlet-name>
+        <servlet-class>e3.servlets.ServletIlegales</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletPrepararProductos</servlet-name>
         <url-pattern>/ServletPrepararProductos</url-pattern>
@@ -19,6 +23,10 @@
     <servlet-mapping>
         <servlet-name>ServletNuevaCuenta</servlet-name>
         <url-pattern>/ServletNuevaCuenta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletIlegales</servlet-name>
+        <url-pattern>/ServletIlegales</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

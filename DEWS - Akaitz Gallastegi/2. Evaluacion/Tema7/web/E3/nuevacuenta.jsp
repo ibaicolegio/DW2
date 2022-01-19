@@ -26,7 +26,7 @@
                     </tr>
                     <tr>
                         <td>Saldo inicial</td>
-                        <td><input type="number" name="saldo" value="<c:if test='${sessionScope.cuenta.saldo!=null}'>${sessionScope.cuenta.saldo}</c:if>"></td>
+                        <td><input type="number" name="saldo" value="<c:if test='${sessionScope.cuenta.saldo!=0}'>${sessionScope.cuenta.saldo}</c:if>"></td>
                     </tr>
                     <tr>
                         <td colspan=2><input style="width: 100%" type="submit" name="enviar" value="Crear Cuenta Corriente"></td>
@@ -34,6 +34,6 @@
                 </tbody>
             </form>
         </table>
-
+        <a href="${pageContext.request.contextPath}/ServletIlegales">Ilegales</a>
     </body>
 </html>

@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Cuenta {
     private String titular;
-    private int saldo;
+    private float saldo;
 
     public Cuenta() {
     }
@@ -17,7 +17,7 @@ public class Cuenta {
         this.titular = titular;
     }
 
-    public int getSaldo() {
+    public float getSaldo() {
         return saldo;
     }
 

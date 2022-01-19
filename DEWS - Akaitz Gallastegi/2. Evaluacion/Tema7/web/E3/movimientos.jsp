@@ -6,6 +6,12 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    if(session.getAttribute("cuenta")==null){
+        response.sendRedirect(this.getServletContext().getContextPath()+"/E3/nuevacuenta.jsp");
+    }
+    
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,11 +28,11 @@
                     </tr>
                     <tr>
                         <td>Titular</td>
-                        <td><c:if test='${sessionScope.titular!=null}'>${titular}</c:if></td>
+                        <td><c:if test='${sessionScope.cuenta.titular!=null}'>${cuenta.titular}</c:if></td>
                     </tr>
                     <tr>
                         <td>Saldo inicial</td>
-                        <td><c:if test='${sessionScope.saldo!=null}'>${saldo}</c:if></td>
+                        <td><c:if test='${sessionScope.cuenta.saldo!=null}'>${cuenta.saldo}</c:if></td>
                     </tr>
                     <tr>
                         <td>Cantidad</td>

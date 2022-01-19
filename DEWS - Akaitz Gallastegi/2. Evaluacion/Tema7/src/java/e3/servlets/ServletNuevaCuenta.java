@@ -21,7 +21,12 @@ public class ServletNuevaCuenta extends HttpServlet {
     public void init() throws ServletException {
         super.init(); //To change body of generated methods, choose Tools | Templates.
         ServletContext context=getServletContext();
-        ArrayList<String> nombres=new ArrayList<>();
+        ArrayList<String> nombres;
+        if(context.getAttribute("usuarios")!=null){
+            nombres=(ArrayList<String>)context.getAttribute("usuarios");
+        }else {
+            nombres=new ArrayList<>();
+        }
         nombres.add("admin");
         nombres.add("ibai");
         context.setAttribute("usuarios", nombres);
@@ -31,6 +36,7 @@ public class ServletNuevaCuenta extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         HttpSession session=request.getSession(true);
         String fichero="errores.txt", error="";
         ArrayList<String> errores=new ArrayList<>();
@@ -52,12 +58,13 @@ public class ServletNuevaCuenta extends HttpServlet {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        session.setAttribute("titular", request.getParameter("titular"));
-        if(!request.getParameter("enviar").isEmpty()){
+        if(request.getParameter("enviar")!=null){
             if(request.getParameter("titular").equals("")){
                 error+=errores.get(0)+"<br>";
             } else if(nombres.contains(request.getParameter("titular"))){
                 error+=errores.get(2)+"<br>";
+            } else {
+                cuenta.setTitular(request.getParameter("titular"));
             }
             System.out.println(request.getParameter("saldo"));
             if(request.getParameter("saldo").equals("")){
@@ -74,25 +81,35 @@ public class ServletNuevaCuenta extends HttpServlet {
             } else {
                 response.sendRedirect(request.getContextPath() + "/E3/movimientos.jsp");
             }
-        }else if(!request.getParameter("gastar").isEmpty()){
+        }else if(request.getParameter("gastar")!=null){
             if(request.getParameter("cantidad").equals("")){
-                cuenta.setSaldo(0);
+                error+=errores.get(3)+"<br>";
             }else if(Integer.parseInt(request.getParameter("cantidad"))<0){
-                error+=errores.get(1)+"<br>";
+                error+=errores.get(4)+"<br>";
             } else {
-                cuenta.gastar(Integer.parseInt(request.getParameter("cantidad")));
+                boolean gastado=cuenta.gastar(Integer.parseInt(request.getParameter("cantidad")));
+                if(!gastado){
+                    error+=errores.get(1)+"<br>";
+                }
             }
+            session.setAttribute("error", error);
+            session.setAttribute("cuenta", cuenta);
             response.sendRedirect(request.getContextPath() + "/E3/movimientos.jsp");
-        }else if(!request.getParameter("ingresar").isEmpty()){
+        }else if(request.getParameter("ingresar")!=null){
             if(request.getParameter("cantidad").equals("")){
-                cuenta.setSaldo(0);
+                error+=errores.get(3)+"<br>";
             }else if(Integer.parseInt(request.getParameter("cantidad"))<0){
-                error+=errores.get(1)+"<br>";
+                error+=errores.get(4)+"<br>";
             } else {
                 cuenta.ingresar(Integer.parseInt(request.getParameter("cantidad")));
             }
+            session.setAttribute("error", error);
+            session.setAttribute("cuenta", cuenta);
             response.sendRedirect(request.getContextPath() + "/E3/movimientos.jsp");
+        } else {
+            response.sendRedirect(request.getContextPath() + "/E3/nuevacuenta.jsp");
         }
+        
         
     }
 
