@@ -7,6 +7,7 @@ package servlets;
 
 import dao.GestorBD;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -38,7 +39,47 @@ public class ServletDevolver extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session=request.getSession(true);
-        session.setAttribute("librosPrestamo", bd.librosPrestamo());
+        
+        
+        
+        if(request.getParameter("marcar")!=null){
+            ArrayList<Integer> devoluciones;
+            if(session.getAttribute("devoluciones")==null){
+                devoluciones=new ArrayList<Integer>();
+            } else {
+                devoluciones=(ArrayList<Integer>)session.getAttribute("devoluciones");
+            }
+            if(!devoluciones.contains(Integer.parseInt(request.getParameter("marcar")))){
+                devoluciones.add(Integer.parseInt(request.getParameter("marcar")));
+            }
+            session.setAttribute("devoluciones", devoluciones);
+        }
+        if(request.getParameter("revertir")!=null){
+            ArrayList<Integer> devoluciones;
+            if(session.getAttribute("devoluciones")==null){
+                devoluciones=new ArrayList<Integer>();
+            } else {
+                devoluciones=(ArrayList<Integer>)session.getAttribute("devoluciones");
+            }
+            devoluciones.remove(Integer.valueOf(request.getParameter("revertir")));
+            session.setAttribute("devoluciones", devoluciones);
+        }
+        if(request.getParameter("grabar")!=null){
+            ArrayList<Integer> devoluciones;
+            if(session.getAttribute("devoluciones")==null){
+                devoluciones=new ArrayList<Integer>();
+            } else {
+                devoluciones=(ArrayList<Integer>)session.getAttribute("devoluciones");
+            }
+            bd.devolver(devoluciones);
+            session.removeAttribute("devoluciones");
+            session.removeAttribute("librosPrestamo");
+        }
+        
+        if(session.getAttribute("librosPrestamo")==null){
+            session.setAttribute("librosPrestamo", bd.librosPrestamo());
+        }
+        
         request.getRequestDispatcher("/E1/devoluciones.jsp").forward(request, response);
     }
 

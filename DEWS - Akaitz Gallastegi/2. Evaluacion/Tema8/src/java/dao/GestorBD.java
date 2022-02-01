@@ -8,6 +8,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -45,7 +46,7 @@ public class GestorBD {
     
     public ArrayList<Map> librosPrestamo(){
         ArrayList<Map> librosPrestamo = new ArrayList<Map>();
-        String sql = "SELECT titulo, DATEDIFF(CURRENT_DATE,fecha) as fecha FROM libro,prestamo WHERE libro.id=prestamo.idlibro order by fecha DESC";
+        String sql = "SELECT prestamo.id as id, titulo, DATEDIFF(CURRENT_DATE,fecha) as fecha FROM libro,prestamo WHERE libro.id=prestamo.idlibro order by fecha DESC";
         try {
             Connection con = dataSource.getConnection();
             Statement st = con.createStatement();
@@ -54,14 +55,31 @@ public class GestorBD {
                 Map libroPrestamo = new HashMap();
                 libroPrestamo.put("titulo", rs.getString("titulo"));
                 libroPrestamo.put("fecha", rs.getInt("fecha"));
+                libroPrestamo.put("id", rs.getInt("id"));
                 librosPrestamo.add(libroPrestamo);
             }
             rs.close();
             st.close();
             con.close();
         } catch (SQLException ex) {
-            System.err.println("Error en metodo libros: " + ex);
+            System.err.println("Error en metodo librosPrestados: " + ex);
         }
         return librosPrestamo;
+    }
+    
+    public void devolver(ArrayList<Integer> devoluciones){
+        try{    
+            Connection con = dataSource.getConnection();
+            PreparedStatement ps = con.prepareStatement("DELETE FROM prestamo WHERE id=?");
+            for (Integer devolucion : devoluciones) {
+                ps.setInt(1, devolucion); 
+                ps.executeUpdate();
+            }
+            ps.close();
+            con.close();
+        } catch (SQLException ex) {
+            System.err.println("Error en metodo devolver: " + ex);
+        }
+        
     }
 }

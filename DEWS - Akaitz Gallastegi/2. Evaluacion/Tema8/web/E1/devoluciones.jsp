@@ -15,16 +15,29 @@
     <body>
         <h1>Hola</h1>
         <table>
-            <c:forEach var="libroPrestamo" items="${librosPrestamo}">
+            <c:forEach var="libroPrestamo" items="${librosPrestamo}" varStatus="estado">
             <tr>
                 <td>
-            
+                    ${estado.count}.-
                     ${libroPrestamo.titulo},
                     ${libroPrestamo.fecha} dias prestado
                 </td>
-                <td><a href="">MARCAR DEVOLUCION</a></td>
+                <td>
+                    <c:choose>
+                        <c:when test="${sessionScope.devoluciones.contains(libroPrestamo.id)}">
+                            <a href="ServletDevolver?revertir=${libroPrestamo.id}">REVERTIR DEVOLUCION</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a href="ServletDevolver?marcar=${libroPrestamo.id}">MARCAR DEVOLUCION</a>
+                        </c:otherwise>
+                    </c:choose>
+                </td>
             </tr>
          </c:forEach>
         </table>
+        <c:if test="${sessionScope.devoluciones.size()>0}">
+            <a href="ServletDevolver?grabar">GRABAR DEVOLUCIONES</a>
+            (${sessionScope.devoluciones.size()} libros)
+        </c:if>
     </body>
 </html>
