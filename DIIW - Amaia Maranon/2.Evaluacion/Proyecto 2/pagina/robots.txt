@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /pages/preguntas.html
+Allow: /
+
+Sitemap: https://ibaicolegio.github.io/sitemap.xml
