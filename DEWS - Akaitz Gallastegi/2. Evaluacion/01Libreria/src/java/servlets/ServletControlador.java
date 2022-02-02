@@ -5,10 +5,17 @@
  */
 package servlets;
 
+import beans.Autor;
 import beans.Libro;
 import dao.GestorBD;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,9 +48,14 @@ public class ServletControlador extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getSession().setAttribute("libros", bd.libros());
-        request.getSession().setAttribute("autores", bd.autores());
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        if(request.getSession().getAttribute("autores")==null){
+            request.getSession().setAttribute("autores", bd.autores());
+        }
+        if(request.getParameter("id")!=null){
+            request.getSession().setAttribute("libros", bd.libros(Integer.parseInt(request.getParameter("id"))));
+            request.getSession().setAttribute("autor", request.getParameter("autor"));
+        }
+        request.getRequestDispatcher("autores.jsp").forward(request, response);
     }
 
     /**
@@ -59,48 +71,24 @@ public class ServletControlador extends HttpServlet {
             throws ServletException, IOException {
         //Para evitar problemas con caracteres especiales
         request.setCharacterEncoding("UTF-8");
-        if(request.getParameter("insertar") == null){
-            doGet(request, response);
-        }else{
-            if(request.getParameter("titulo").equals("") || 
-                    request.getParameter("paginas").equals("") || 
-                    request.getParameter("genero").equals("")){
-                request.setAttribute("errorinsercion", "Hay que rellenar todos los datos");
-            }else{
-                try{
-                    //Recuperamos los datos del formulario y creamos un objeto de tipo libro.
-                    //Este objeto no tendrá ID hasta que se inserte en la base de datos
-                    String titulo = request.getParameter("titulo");
-                    int paginas = Integer.parseInt(request.getParameter("paginas"));
-                    String genero = request.getParameter("genero");
-                    int autor = Integer.parseInt(request.getParameter("idautor"));
-                    
-                    Libro libro = new Libro(titulo, paginas, genero, autor);
-                    
-                    //Si el libro ya existe no se inserta en la base de datos
-                    boolean existe = bd.existeLibro(libro);
-                    if(existe){
-                        request.setAttribute("errorinsercion", "El libro " 
-                                + libro.getTitulo() + " ya existe");
-                    }else{
-                        int id = bd.insertarLibro(libro);
-                        
-                        if(id == -1){
-                            request.setAttribute("errorinsercion", "No se ha podido insertar el libro");
-                            request.setAttribute("libroerroneo", libro);
-                        }else{
-                            //Si no ha habido ningún problema se añade el ID al 
-                            //al objeto libro y se añadae el nuevo libro a la 
-                            //seión
-                            libro.setIdLibro(id);
-                            ((ArrayList<Libro>)request.getSession().getAttribute("libros")).add(libro);
-                        }
-                    }
-                }catch(NumberFormatException e){
-                    request.setAttribute("errorinsercion", "Numero de páginas erroneo");
-                }
+        if(request.getParameter("enviar")!=null){
+            ArrayList<Autor> autores=(ArrayList<Autor>) request.getSession().getAttribute("autores");
+            Autor autor=new Autor();
+            autor.setNombre(request.getParameter("nombre"));
+            SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");
+            try {
+                autor.setFechanac(formateador.parse(request.getParameter("fechanac")));
+            } catch (ParseException ex) {
+                Logger.getLogger(ServletControlador.class.getName()).log(Level.SEVERE, null, ex);
             }
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            autor.setNacionalidad(request.getParameter("nacionalidad"));
+            if(!autores.contains(autor)){
+                bd.insertarAutor(autor);
+                request.getSession().setAttribute("autores", bd.autores());
+                request.getRequestDispatcher("autores.jsp").forward(request, response);
+            } else {
+                response.sendRedirect("autores.jsp?existe");  
+            }
         }
     }
 

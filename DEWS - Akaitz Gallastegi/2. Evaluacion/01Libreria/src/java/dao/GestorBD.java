@@ -5,12 +5,15 @@
  */
 package dao;
 
+import beans.Autor;
 import beans.Libro;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.logging.Level;
@@ -39,9 +42,9 @@ public class GestorBD {
         dataSource.setInitialSize(50);
     }
     
-    public ArrayList<Libro> libros(){
+    public ArrayList<Libro> libros(int id){
         ArrayList<Libro> libros = new ArrayList<Libro>();
-        String sql = "SELECT * FROM libro";
+        String sql = "SELECT * FROM libro where idautor="+id;
         try {
             Connection con = dataSource.getConnection();
             Statement st = con.createStatement();
@@ -61,16 +64,18 @@ public class GestorBD {
         return libros;
     }
     
-    public LinkedHashMap<Integer, String> autores(){
-        LinkedHashMap<Integer, String> autores = new LinkedHashMap<Integer, String>();
-        String sql = "SELECT id, nombre FROM autor";
+    public ArrayList<Autor> autores(){
+        ArrayList<Autor> autores = new ArrayList<Autor>();
+        String sql = "SELECT * FROM autor";
         Connection con;
         try {
             con = dataSource.getConnection();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
-                autores.put(rs.getInt("id"), rs.getString("nombre"));
+                Autor autor = new Autor(rs.getInt("id"), rs.getString("nombre"),
+                                        rs.getDate("fechanac"), rs.getString("nacionalidad"));
+                autores.add(autor);
             }
             rs.close();
             st.close();
@@ -102,17 +107,19 @@ public class GestorBD {
         return existe;
     }
     
-    public int insertarLibro(Libro libro){
+    public int insertarAutor(Autor autor){
         int id = -1;
-        String sql = "INSERT INTO libro(titulo, paginas, genero, idautor) "
+        String sql = "INSERT INTO autor(id, nombre, fechanac, nacionalidad) "
                 + " VALUES(?, ?, ?, ?)";
         try {
             Connection con = dataSource.getConnection();
             PreparedStatement st = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            st.setString(1, libro.getTitulo());
-            st.setInt(2, libro.getPaginas());
-            st.setString(3, libro.getGenero());
-            st.setInt(4, libro.getIdAutor());
+            st.setInt(1, autor.getIdAutor());
+            st.setString(2, autor.getNombre());
+            SimpleDateFormat formateador = new SimpleDateFormat("yyyy/MM/dd");
+            String fechastr= formateador.format(autor.getFechanac());
+            st.setString(3, fechastr);
+            st.setString(4, autor.getNacionalidad());
             
             st.executeUpdate();
             
